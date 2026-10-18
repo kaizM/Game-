@@ -18,6 +18,7 @@ namespace Harborlight.Editor
         public static void BuildAssets()
         {
             ConfigureResidentImporter();
+            ConfigureResidentNormalMaps();
             var idleClipName = "Idle_No_Loop";
             var walkClipName = "Walk_Carry_Loop";
             ConfigureAnimationLoops(idleClipName, walkClipName);
@@ -38,19 +39,38 @@ namespace Harborlight.Editor
             Debug.Log($"[HarborlightResidentCharacterSetup] Built resident prefab with humanoid idle/walk animation: avatar={avatar.name}, idle={idle.name}, walk={walk.name}, prefab={PrefabPath}");
         }
 
-        private static void ConfigureResidentImporter()
+        [MenuItem("Harborlight/Configure Resident Normal Maps")]
+        public static void ConfigureResidentNormalMaps()
+        {
+            foreach (var name in new[] { "male_casualsuit01_normal", "shoes01_normal" })
+            {
+                var path = "Assets/Resources/Characters/HarborlightResident/textures/" + name + ".png";
+                var importer = AssetImporter.GetAtPath(path) as TextureImporter;
+                if (importer == null) throw new InvalidOperationException("Missing resident normal map: " + path);
+                if (importer.textureType == TextureImporterType.NormalMap && !importer.sRGBTexture) continue;
+                importer.textureType = TextureImporterType.NormalMap;
+                importer.sRGBTexture = false;
+                importer.SaveAndReimport();
+            }
+        }
+
+        public static void ConfigureResidentImporter()
         {
             var importer = AssetImporter.GetAtPath(ResidentModelPath) as ModelImporter;
             if (importer == null)
                 throw new InvalidOperationException("Could not load resident model importer: " + ResidentModelPath);
 
             if (importer.animationType == ModelImporterAnimationType.Human &&
-                importer.avatarSetup == ModelImporterAvatarSetup.CreateFromThisModel && !importer.importAnimation)
+                importer.avatarSetup == ModelImporterAvatarSetup.CreateFromThisModel && !importer.importAnimation &&
+                importer.importNormals == ModelImporterNormals.Calculate &&
+                importer.importTangents == ModelImporterTangents.CalculateMikk)
                 return;
 
             importer.animationType = ModelImporterAnimationType.Human;
             importer.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel;
             importer.importAnimation = false;
+            importer.importNormals = ModelImporterNormals.Calculate;
+            importer.importTangents = ModelImporterTangents.CalculateMikk;
             importer.SaveAndReimport();
         }
 

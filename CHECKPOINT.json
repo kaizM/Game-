@@ -1,7 +1,7 @@
 {
   "objective": "Build Harborlight into an original, Android-first open-world multiplayer roleplay game with verified systems and production evidence.",
   "updatedAt": "2026-10-18",
-  "phase": "M5-inventory-API-24-tests; M10-14.24km2-map-layout-audit-and-current-HUD-review; expanded-map-two-client-visibility-pass; ground-grade-runtime-verified; map-ground-contact-and-save-bounds-runtime-smoke; world-draw-range-aligned-with-streaming; M10-24.70km2-multiplayer-map-expansion-and-runtime-smoke; M12-current-source-Android-ARM64-development-build-and-package-verification; M10-procedural-coastal-sky-and-expanded-map-ground-contact-QA; M10-three-Quaternius-CC0-outer-building-forms-grounded-and-runtime-smoke-verified; M10-tapered-peninsula-coastline-and-clipped-roads-runtime-smoke-verified; M10-outer-road-hierarchy-curved-connectors-and-map-layout-smoke-verified; M5-Unity-inventory-UI-authenticated-loopback-smoke-passed; M10-curved-district-cartography-and-road-hierarchy-mac-QA-verified; M12-current-source-Android-ARM64-development-APK-package-and-signature-verified",
+  "phase": "QUALITY_RECOVERY_CHARACTER_CAMERA",
   "overallStatus": "IN_PROGRESS",
   "projectRoot": "/Users/admin/Desktop/RP game/harborlight-city",
   "relatedRoots": [
@@ -34,6 +34,10 @@
     "M12": "IN_PROGRESS"
   },
   "verifiedArtifacts": [
+    {
+      "path": "docs/reports/camera-recovery-2026-10-18.md",
+      "result": "Unity macOS QA player built successfully; ten bounded camera framing, obstruction, recovery, retarget, teleport, and walking/vehicle mode checks passed. The same player also passed the resident movement/Animator regression. Touch orbit, vehicle handling, full traversal, and mobile behavior remain unverified."
+    },
     {
       "path": "Builds/Harborlight-Driving.app",
       "result": "Current Unity 6000.5.4f1 macOS development QA build after the inventory panel offline-to-online refresh fix. CFBundleIdentifier is com.meridian.harborlight.qa; smoke completed and the player exited automatically."
@@ -473,11 +477,18 @@
     {
       "path": "docs/reports/screenshots/Harborlight-Visual-Recovery-2026-10-18.png",
       "result": "1280x720 capture from same disposable profile after reducing beacon range/intensity; no blown-out player halo."
+    },
+    {
+      "path": "docs/reports/character-surface-recovery-2026-10-18.md",
+      "result": "dfc710513fac1c53a6156d45ecc1d750fc1e3779: Unity-calculated resident normals corrected black surface shading; correct garment/shoe normal imports, preserved skin tint, four fixed Mac captures and direct movement/Animator stop smoke passed. Device/full gameplay/performance gates remain open."
     }
   ],
   "referenceAttempt": "REA identifies the installed OneState executable as arm64 Mach-O and the current REA session reports Ghidra 12.1.4 available. An earlier OneState runtime launch produced no accessible window and reached approximately 329% CPU; it remains closed to protect Mac thermals. The installed app is a compiled build, not its Unity project source; no code or assets were transferred.",
   "nextActions": [
-    "Install the current-source ARM64 APK on a physical Android device and verify launch; no device is attached.",
+    "Implement ordinary walk/jog/run blends, acceleration/deceleration feel, and foot-ground response; preserve authoritative network movement and verify with actual bounded gameplay captures.",
+    "Author the existing North Pier/Lantern Square hero district with editable scenes/prefabs and coherent licensed/original art. Keep world expansion frozen until the visual/gameplay/device quality gate passes.",
+    "Rebuild Android from the current character/camera source before device QA. No physical Android/iOS device is attached; record the device gate as BLOCKED while continuing source work.",
+    "After character feel and authored-district work, resume integrated gameplay, central-area interaction, and scoped physical-device verification.",
     "The outer road hierarchy has been reduced and two curved connectors are in place; next traverse the north, shore, and southern routes, validate road junction collision, and add original functional destinations before approving M10 map art.",
     "Continue M10 visual work: diversify the central architecture, fill open city blocks with licensed structures and props, and review close-up/game-route captures before approving the art.",
     "Traverse representative routes across the 24.70 km\u00b2 map, cover all ten named outer districts and 36 entry zones, and exercise selected later-client IDs in a live session; verify collision, unload/reload, Android behavior, and load before setting a player-count target.",
@@ -500,5 +511,32 @@
     "The outer-city screenshot is a first-frame capture before streamed fa\u00e7ades load; the 24.70 km\u00b2 map remains sparse and uses two repeated kits, so production architecture and full visual traversal are not verified.",
     "The current road-hierarchy Mac smoke passes its bounded map probes but is not full route traversal or device evidence. The Player.log also reports a Northshore playable ground mesh triangle over 500 units; investigate actual cooked collider geometry and query behavior before relying on that terrain collider for vehicle physics.",
     "The inventory Mac QA smoke invoked HarborlightBackendClient methods directly while rendering the live bag; actual button/touch activation and ambiguous network-result retry remain unverified. Android and production commerce are not ready."
-  ]
+  ],
+  "qualityRecovery": {
+    "masterGoal": "docs/MASTER_RECOVERY_GOAL.md",
+    "baselineLocalCommit": "3d5b19b",
+    "uploadedBaselineCommit": "5d24c9e9e282f7b25a0891aa65b9fa97a214686b",
+    "lastVerifiedCommit": "7795409638596cedde4f562b7c5a6d8ac5caa35d",
+    "currentDefect": "Ordinary walk/jog/run transitions and foot-ground response remain unfinished.",
+    "status": "IN_PROGRESS",
+    "evidence": "docs/reports/camera-recovery-2026-10-18.md",
+    "checks": {
+      "assetValidation": "VERIFIED",
+      "macBuild": "VERIFIED",
+      "fourCaptures": "VERIFIED",
+      "directMovementAndAnimatorStop": "VERIFIED",
+      "physicalAndroid": "BLOCKED",
+      "physicalIOS": "BLOCKED",
+      "sustainedPerformance": "DATA_UNKNOWN",
+      "replicaSkill": "DATA_UNKNOWN",
+      "cameraFramingCollisionRecovery": "VERIFIED",
+      "combinedCharacterRegression": "VERIFIED"
+    },
+    "nextTask": "Implement ordinary walk/jog/run transitions and foot-ground response while preserving authoritative network movement, then continue original North Pier/Lantern Square art.",
+    "remaining": "Character skin texture and final art, driving dynamics, authored district, runtime UI, integrated journey, device profiling, full multiplayer careers/property/social systems, reproducible checkout dependency, release hardening.",
+    "qaPlayer": "Builds/Harborlight-Character-QA-20261018.app",
+    "testCommand": "See docs/reports/camera-recovery-2026-10-18.md and docs/reports/character-surface-recovery-2026-10-18.md; use disposable HARBORLIGHT_TEST_PROFILE, fixed 1280x720, low-priority Unity, two workers, and auto-exit QA harnesses.",
+    "characterSurfaceCommit": "dfc710513fac1c53a6156d45ecc1d750fc1e3779",
+    "cameraCommit": "7795409638596cedde4f562b7c5a6d8ac5caa35d"
+  }
 }

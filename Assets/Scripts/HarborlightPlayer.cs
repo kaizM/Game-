@@ -296,57 +296,6 @@ namespace Harborlight
         }
     }
 
-    public sealed class HarborlightCamera : MonoBehaviour
-    {
-        public Transform target;
-        private float _yaw;
-        private float _pitch = 27f;
-        private float _distance = 6.8f;
-        private float _currentDistance = 6.8f;
-
-        public Vector3 PlanarForward => Quaternion.Euler(0f, _yaw, 0f) * Vector3.forward;
-        public Vector3 PlanarRight => Quaternion.Euler(0f, _yaw, 0f) * Vector3.right;
-
-        private void Start()
-        {
-            if (target != null) _yaw = target.eulerAngles.y;
-            _currentDistance = _distance;
-        }
-
-        private void Update()
-        {
-            var look = HarborlightTouchControls.ConsumeCameraLook();
-            if (!HarborlightTouchControls.IsSupported && Input.GetMouseButton(1))
-                look += new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-            _yaw += look.x * (HarborlightTouchControls.IsSupported ? 0.18f : 4f);
-            _pitch = Mathf.Clamp(_pitch - look.y * (HarborlightTouchControls.IsSupported ? 0.16f : 3f), 12f, 55f);
-
-            var zoom = HarborlightTouchControls.ConsumeZoom();
-            if (!HarborlightTouchControls.IsSupported) zoom += Input.mouseScrollDelta.y;
-            _distance = Mathf.Clamp(_distance - zoom * 0.6f, 6f, 13f);
-        }
-
-        private void LateUpdate()
-        {
-            if (target == null) return;
-            var rotation = Quaternion.Euler(_pitch, _yaw, 0f);
-            var focus = target.position + Vector3.up * 1.35f;
-            var cameraDirection = rotation * Vector3.back;
-            var castOrigin = focus + cameraDirection * 0.65f;
-            var targetDistance = _distance;
-            if (Physics.SphereCast(castOrigin, 0.2f, cameraDirection, out var hit,
-                    _distance - 0.65f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
-                targetDistance = Mathf.Clamp(0.65f + hit.distance - 0.08f, 0.65f, _distance);
-
-            var obstructed = targetDistance < _currentDistance;
-            _currentDistance = obstructed ? targetDistance
-                : Mathf.MoveTowards(_currentDistance, targetDistance, 8f * Time.deltaTime);
-            var destination = focus + cameraDirection * _currentDistance;
-            transform.position = obstructed ? destination : Vector3.Lerp(transform.position, destination, 10f * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(focus - transform.position), 12f * Time.deltaTime);
-        }
-    }
-
     public sealed class HarborlightInteractable : MonoBehaviour
     {
         public WorldAction Action;

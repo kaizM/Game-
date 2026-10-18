@@ -1,5 +1,7 @@
 # Harborlight production goal
 
+Current completion mandate: [master recovery goal](docs/MASTER_RECOVERY_GOAL.md). Polish the existing North Pier district before expansion, then continue the full career, property, social, authoritative multiplayer, and tested Android/iOS release scope. The milestones below remain project history and roadmap.
+
 Build Harborlight as an original, Android-first 3D open-world roleplay game, with iOS as a supported platform. The OneState reference is limited to high-level genre and system categories. Harborlight must use its own source, world, characters, vehicles, writing, interface, name, and networking design.
 
 ## Completion target

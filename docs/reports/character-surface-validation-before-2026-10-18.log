@@ -1,0 +1,579 @@
+Unity Editor version:    6000.5.4f1 (d550df8bd089)
+Branch:                  6000.5/staging
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 26.2 (Build 25C56)
+Darwin version:          25.2.0
+Architecture:            arm64
+Running under Rosetta:   NO
+Available memory:        16384 MB
+Date:                    2026-10-18T17:22:11Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Channel LicenseClient-admin doesn't exist
+Launching external process: /Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Helpers/UnityLicensingClient.app/Contents/MacOS/Unity.Licensing.Client
+[Licensing::Module] Successfully launched the LicensingClient (PId: 92381)
+Launching external process: /Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Helpers/PackageManager/Server/UnityPackageManager
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/MacOS/Unity
+-batchmode
+-quit
+-projectPath
+/Users/admin/Desktop/RP game/harborlight-city
+-executeMethod
+Harborlight.Editor.HarborlightCharacterAssetAudit.VerifyResidentPresentation
+-job-worker-count
+2
+-background-job-worker-count
+2
+-logFile
+/tmp/harborlight-resident-validation-failing.log
+Successfully changed project path to: /Users/admin/Desktop/RP game/harborlight-city
+/Users/admin/Desktop/RP game/harborlight-city
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-main-allocator-mimalloc-enabled=0"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+Logging is directed to a specific file, skipping project log.Player connection [8567843904]  Target information:
+
+Player connection [8567843904]  * "[IP] 10.0.0.94 [Port] 55504 [Flags] 2 [Guid] 93305359 [EditorId] 93305359 [Version] 1048832 [Id] OSXEditor(0,Admins-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor"
+
+Player connection [8567843904]  * "[IP] 100.102.112.53 [Port] 55504 [Flags] 2 [Guid] 93305359 [EditorId] 93305359 [Version] 1048832 [Id] OSXEditor(0,Admins-MacBook-Air.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor"
+
+Player connection [8567843904] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8567843904] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 2
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-admin" at "2026-10-18T17:22:12.160287Z"
+[Package Manager] Connected to IPC stream "Upm-92378" after 0.4 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              b9c090d323c1457d8e2abf82ea68eaf2
+  Correlation Id:          72a3a3379058946ea4a799e082495a71
+  External correlation Id: 1275063483446070354
+  Machine Id:              Ibc4HhRLbnzT3+EC14iLOOabOss=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-admin" (connect: 0.38s, validation: 0.04s, handshake: 0.54s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-admin-notifications" at "2026-10-18T17:22:12.73646Z"
+[Licensing::Module] Connected to LicensingClient (PId: 92381, launch time: 0.00, total connection time: 0.96s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 20067442758689-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.98s
+[Licensing::Module] Licensing is initialized (took 0.31s).
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Initialize engine version: 6000.5.4f1 (d550df8bd089)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/admin/Desktop/RP game/harborlight-city/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+ preferred device: Apple M3 (high power)
+Metal devices available: 1
+0: Apple M3 (high power)
+Using device Apple M3 (high power)
+Initializing Metal device caps: Apple M3
+Mac GPU Family: 2
+Apple GPU Family: 9
+MSL Version: 3.0
+Has Float MSAA: 1
+Has Float Filtering: 1
+ReadWrite Texture Tier: 2
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/BCLExtensions/runtime/netstandard2.1'
+Mono path[2] = '/Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56378
+CodeReloadManager initialized
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/6000.5.4f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/6000.5.4f1/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: /Applications/Unity/Hub/Editor/6000.5.4f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: /Applications/Unity/Hub/Editor/6000.5.4f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.013854 seconds.
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+[usbmuxd] Send listen message
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.445 seconds
+Domain Reload Profiling: 966ms
+	BeginReloadAssembly (117ms)
+		CreateAndSetChildDomain (4ms)
+	RebuildCommonClasses (5ms)
+	RebuildNativeTypeToScriptingClass (23ms)
+	initialDomainReloadingComplete (70ms)
+	LoadAllAssembliesAndSetupDomain (306ms)
+		LoadAssemblies (115ms)
+		AnalyzeDomain (233ms)
+			TypeCache.Refresh (231ms)
+				TypeCache.ScanAssembly (212ms)
+	FinalizeReload (446ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (98ms)
+			BeforeProcessingInitializeOnLoad (77ms)
+			ProcessInitializeOnLoadAttributes (85ms)
+			ProcessInitializeOnLoadMethodAttributes (119ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 52 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.netcode.gameobjects@2.13.3 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.netcode.gameobjects@277a288a1cea)
+    com.unity.nuget.mono-cecil@1.11.6 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.searcher@4.9.4 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.searcher@d45a78918735)
+    com.unity.burst@1.8.29 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.burst@6bb9aca3ef38)
+    com.unity.test-framework.performance@3.5.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.1 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.multiplayer.center@b860850997d0)
+    com.unity.render-pipelines.universal@17.5.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.render-pipelines.universal@e38be786c41e)
+    com.unity.modules.accessibility@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.accessibility)
+    com.unity.modules.adaptiveperformance@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.adaptiveperformance)
+    com.unity.modules.ai@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.physics2d)
+    com.unity.modules.physicscore2d@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.physicscore2d)
+    com.unity.modules.screencapture@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vectorgraphics@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.vectorgraphics)
+    com.unity.modules.vehicles@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.video)
+    com.unity.modules.wind@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.modules.hierarchycore)
+    com.unity.render-pipelines.core@17.5.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.render-pipelines.core@539ef1c759fb)
+    com.unity.shadergraph@17.5.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.shadergraph@636559dc59a3)
+    com.unity.render-pipelines.universal-config@17.5.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.render-pipelines.universal-config@fdda01c80fe3)
+    com.unity.transport@6.5.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.transport@0c07c94c2861)
+    com.unity.collections@6.5.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.collections@a43cabe808ca)
+    com.unity.mathematics@1.4.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.mathematics@981956d94fb6)
+    com.unity.test-framework@1.7.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.test-framework@1405238725ab)
+    com.unity.ext.nunit@2.1.0 (location: /Users/admin/Desktop/RP game/harborlight-city/Library/PackageCache/com.unity.ext.nunit@44f7d31723bd)
+  Local packages:
+    com.meridian.game-admin@file:/Users/admin/Desktop/RP game/game-admin-sdk (location: /Users/admin/Desktop/RP game/game-admin-sdk)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.01 seconds
+[ScriptCompilation] Requested script compilation because: AssetDatabase observed changes in script compilation related files
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://unix:/tmp/ilpp.sock-2eb33038b8b5af130861992cebde095b
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/admin/Desktop/RP game/harborlight-city
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - 200 - application/grpc 31.5155ms
+Starting: /Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/BuildPipeline/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/200b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: /Users/admin/Desktop/RP game/harborlight-city
+DisplayProgressbar: Compiling Scripts
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors - application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly unityeditor.ios.extensions.xcode has duplicate hint path. Ignoring "/Applications/Unity/Hub/Editor/6000.5.4f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll" in favor of "/Applications/Unity/Hub/Editor/6000.5.4f1/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll"
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.runtime.interopservices.windowsruntime has duplicate hint path. Ignoring "/Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.WindowsRuntime.dll" in favor of "/Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll"
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.componentmodel.composition has duplicate hint path. Ignoring "/Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/UnityReferenceAssemblies/unity-4.8-api/System.ComponentModel.Composition.dll" in favor of "/Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/NetStandard/compat/2.1.0/shims/netfx/System.ComponentModel.Composition.dll"
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Burst.Cecil, Version=0.11.6.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library/PackageCache/com.unity.burst@6bb9aca3ef38/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Mono.Cecil, Version=0.11.5.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library/PackageCache/com.unity.nuget.mono-cecil@ecb9724e46ff/Mono.Cecil.dll
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors - 200 - application/grpc 23.6083ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly - application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp-Editor.dll, with 134 defines and 338 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Netcode.Editor.CodeGen.INetworkMessageILPP, Unity.Netcode.Editor.CodeGen.INetworkSerializableILPP, Unity.Netcode.Editor.CodeGen.NetworkBehaviourILPP, Unity.Netcode.Editor.CodeGen.RuntimeAccessModifiersILPP, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Collections, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with Library/Bee/artifacts/200b0aE.dag/Unity.Collections.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with /Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/Managed/UnityEngine/UnityEditor.CoreModule.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with /Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/Managed/UnityEngine/UnityEngine.CoreModule.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Scripting, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with /Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Resources/Scripting/Managed/UnityEngine/Unity.Scripting.dll
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Netcode.Editor.CodeGen.INetworkMessageILPP
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Netcode.Editor.CodeGen.INetworkSerializableILPP
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Netcode.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null with Library/Bee/artifacts/200b0aE.dag/Unity.Netcode.Runtime.dll
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Netcode.Editor.CodeGen.NetworkBehaviourILPP
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Mono.Cecil.Rocks, Version=0.11.5.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library/PackageCache/com.unity.nuget.mono-cecil@ecb9724e46ff/Mono.Cecil.Rocks.dll
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Netcode.Editor.CodeGen.RuntimeAccessModifiersILPP
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Burst.Cecil.Rocks, Version=0.11.6.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library/PackageCache/com.unity.burst@6bb9aca3ef38/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly - 200 - application/grpc 666.4567ms
+ExitCode: 0 Duration: 2s987ms
+[498/626    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[622/626    2s] Csc Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[623/626    0s] ILPostProcess Library/Bee/artifacts/200b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/200b0aE.dag/Assembly-CSharp-Editor.dll, with 134 defines and 338 references
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, Unity.Netcode.Editor.CodeGen.INetworkMessageILPP, Unity.Netcode.Editor.CodeGen.INetworkSerializableILPP, Unity.Netcode.Editor.CodeGen.NetworkBehaviourILPP, Unity.Netcode.Editor.CodeGen.RuntimeAccessModifiersILPP, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+running Unity.Netcode.Editor.CodeGen.INetworkMessageILPP
+running Unity.Netcode.Editor.CodeGen.INetworkSerializableILPP
+running Unity.Netcode.Editor.CodeGen.NetworkBehaviourILPP
+running Unity.Netcode.Editor.CodeGen.RuntimeAccessModifiersILPP
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[624/626    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[625/626    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+*** Tundra build success (2.96 seconds), 5 items updated, 626 evaluated
+AssetDatabase: script compilation time: 3.623150s
+Begin MonoManager ReloadAssembly
+Total cache size 266526547
+Total cache size after purge 266526547, took 00:00:00.1306023
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.528 seconds
+Domain Reload Profiling: 3099ms
+	BeginReloadAssembly (161ms)
+		DisableScriptedObjects (16ms)
+		CreateAndSetChildDomain (46ms)
+	RebuildCommonClasses (8ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (32ms)
+	LoadAllAssembliesAndSetupDomain (352ms)
+		LoadAssemblies (194ms)
+		AnalyzeDomain (128ms)
+			TypeCache.Refresh (93ms)
+				TypeCache.ScanAssembly (78ms)
+			BuildScriptInfoCaches (29ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (2529ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			BeforeProcessingInitializeOnLoad (74ms)
+			ProcessInitializeOnLoadAttributes (1802ms)
+			ProcessInitializeOnLoadMethodAttributes (106ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
+Starting new worker id: 0 with log in /Users/admin/Desktop/RP game/harborlight-city/Logs/AssetImportWorkerHW0.log
+
+Asset Pipeline Refresh (id=38688e885577845038cd8d489e4a399b): Total: 7.590 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	(Values over 0.05ms)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=3149 ms
+		Asset DB Callback time: managed=149 ms, native=49 ms
+		Scripting: domain reloads=1, domain reload time=589 ms, compile time=3624 ms, other=26 ms
+		Project Asset Count: scripts=823, non-scripts=1531
+		Asset File Changes: new=0, changed=1, moved=0, deleted=0
+		Scan Filter Count: 1
+	InvokePackagesCallback: 9.490ms
+	ApplyChangesToAssetFolders: 0.280ms
+	Scan: 395.675ms
+	Collect global state as custom dependencies: 2.905ms
+	OnSourceAssetsModified: 0.654ms
+	CategorizeScriptCompilationAssets: 19.940ms
+	ProcessAssetsWithTransientArtifactChanges: 34.023ms
+	CategorizeAssets: 39.438ms
+	CompileScripts: 3624.184ms
+	ImportOutOfDateAssets: 2576.028ms (2539.787ms without children)
+		UnloadImportedAssets: 1.361ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.379ms
+		ImportSchedulerStart: 34.468ms
+	PostProcessAllAssets: 182.605ms
+		VCAutoAddAssetPostprocess 32.687ms
+		XRBuildSystem.XRAssetImported 0.053ms
+		MonoPostProcessAllAssets: 149.357ms
+			AssetPostprocessor.OnPostprocessAllAssets 72.379ms
+			NetworkPrefabProcessor.OnPostprocessAllAssets 19.422ms
+			StyleCatalogPostProcessor.OnPostprocessAllAssets 14.721ms
+			UniversalRenderPipelineGlobalSettingsPostprocessor.OnPostprocessAllAssets 13.326ms
+			BuilderAssetPostprocessor.OnPostprocessAllAssets 6.729ms
+			SpeedTree9Postprocessor.OnPostprocessAllAssets 1.733ms
+			RetainedModeAssetPostprocessor.OnPostprocessAllAssets 1.599ms
+			WindowAssetPostprocessingWatcher.OnPostprocessAllAssets 1.581ms
+			AssetChangedListener.OnPostprocessAllAssets 1.484ms
+			ShaderGraphAssetPostProcessor.OnPostprocessAllAssets 1.292ms
+			SyncVS.PostprocessSyncProject 1.010ms
+			EditModeScopePostprocessor.OnPostprocessAllAssets 0.830ms
+			MaterialPostprocessor.OnPostprocessAllAssets 0.610ms
+			RenderPipelineGlobalSettingsPostprocessor.OnPostprocessAllAssets 0.516ms
+			ArtifactBrowserPostProcessor.OnPostprocessAllAssets 0.496ms
+			SampleDependencyImporterPostProcessor.OnPostprocessAllAssets 0.332ms
+			TextAssetPostProcessor.OnPostprocessAllAssets 0.256ms
+			ShaderReflectionAssetPostProcessor.OnPostprocessAllAssets 0.254ms
+			ReferencedClipsPostProcessor.OnPostprocessAllAssets 0.252ms
+			AudioMixerPostprocessor.OnPostprocessAllAssets 0.247ms
+			AssetEvents.OnPostprocessAllAssets 0.210ms
+			PostProcessor.OnPostprocessAllAssets 0.206ms
+			TerrainToolbarOverlayPostProcessor.OnPostprocessAllAssets 0.155ms
+			ConfigAssetsTracker.OnPostprocessAllAssets 0.146ms
+			SpeedTreePostProcessor.OnPostprocessAllAssets 0.123ms
+			AssetDatabaseCallbacks.OnPostprocessAllAssets 0.114ms
+			ScenarioDriftAssetsTracker.OnPostprocessAllAssets 0.084ms
+			AudioContainerPostProcessor.OnPostprocessAllAssets 0.061ms
+	PostAssetChangesProfiler: 7.686ms
+	UnloadStreamsBegin: 1.301ms
+	PersistCurrentRevisions: 0.088ms
+	GenerateScriptTypeHashes: 1.259ms
+	GenerateScriptTypeSerializationHashes: 2.173ms
+	Untracked: 692.490ms
+
+Application.AssetDatabase Initial Refresh End
+Shader Hidden/ChartRasterizerHardware is not supported: GPU does not support conservative rasterization
+Launching external process: /Applications/Unity/Hub/Editor/6000.5.4f1/Unity.app/Contents/Helpers/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.09 seconds
+Shader Hidden/ChartRasterizerHardware is not supported: GPU does not support conservative rasterization
+Scanning for USB devices : 0.059ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Harborlight
+Unloading 67 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3389 unused Assets / (9.5 MB). Loaded Objects now: 4365.
+Memory consumption went from 211.8 MB to 202.3 MB.
+Total: 19.421083 ms (FindLiveObjects: 0.435417 ms CreateObjectMapping: 1.322041 ms MarkObjects: 11.640084 ms  DeleteObjects: 6.022792 ms)
+
+HL_RESIDENT_REFLECTION name=harborlightresident workflow=1 specular=RGBA(0.200, 0.200, 0.200, 1.000) specularWorkflow=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:26)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 26)
+
+HL_RESIDENT_MATERIAL name=harborlightresident shader=Universal Render Pipeline/Lit metallic=0 smoothness=0.09797959 color=RGBA(0.792, 0.694, 0.616, 1.000) albedo=<none> normal=<none>
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:27)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 27)
+
+HL_RESIDENT_REFLECTION name=high-poly workflow=1 specular=RGBA(0.200, 0.200, 0.200, 1.000) specularWorkflow=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:26)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 26)
+
+HL_RESIDENT_MATERIAL name=high-poly shader=Universal Render Pipeline/Lit metallic=0 smoothness=0.1 color=RGBA(1.000, 1.000, 1.000, 1.000) albedo=brown_eye normal=<none>
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:27)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 27)
+
+HL_RESIDENT_REFLECTION name=male_casualsuit01 workflow=1 specular=RGBA(0.200, 0.200, 0.200, 1.000) specularWorkflow=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:26)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 26)
+
+HL_RESIDENT_MATERIAL name=male_casualsuit01 shader=Universal Render Pipeline/Lit metallic=0 smoothness=0.04472136 color=RGBA(1.000, 1.000, 1.000, 1.000) albedo=male_casualsuit01_diffuse normal=male_casualsuit01_normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:27)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 27)
+
+HL_RESIDENT_REFLECTION name=shoes01 workflow=1 specular=RGBA(0.200, 0.200, 0.200, 1.000) specularWorkflow=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:26)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 26)
+
+HL_RESIDENT_MATERIAL name=shoes01 shader=Universal Render Pipeline/Lit metallic=0 smoothness=0.06324556 color=RGBA(1.000, 1.000, 1.000, 1.000) albedo=shoes01_diffuse normal=shoes01_normal
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:27)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 27)
+
+HL_RESIDENT_REFLECTION name=short02 workflow=1 specular=RGBA(0.200, 0.200, 0.200, 1.000) specularWorkflow=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:26)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 26)
+
+HL_RESIDENT_MATERIAL name=short02 shader=Universal Render Pipeline/Lit metallic=0 smoothness=0.09797959 color=RGBA(1.000, 1.000, 1.000, 1.000) albedo=short02_diffuse normal=<none>
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:27)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 27)
+
+HL_RESIDENT_NORMAL_INVALID path=Assets/Resources/Characters/HarborlightResident/textures/male_casualsuit01_normal.png
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:37)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 37)
+
+HL_RESIDENT_NORMAL_INVALID path=Assets/Resources/Characters/HarborlightResident/textures/shoes01_normal.png
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Harborlight.Editor.HarborlightCharacterAssetAudit:VerifyResidentPresentation () (at Assets/Editor/HarborlightCharacterAssetAudit.cs:37)
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 37)
+
+InvalidOperationException: Resident presentation failed: materials=5, invalid=2.
+  at Harborlight.Editor.HarborlightCharacterAssetAudit.VerifyResidentPresentation () [0x002d3] in /Users/admin/Desktop/RP game/harborlight-city/Assets/Editor/HarborlightCharacterAssetAudit.cs:44
+
+(Filename: Assets/Editor/HarborlightCharacterAssetAudit.cs Line: 44)
+
+executeMethod method Harborlight.Editor.HarborlightCharacterAssetAudit.VerifyResidentPresentation threw exception.
+[Package Manager] Server process was shutdown
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      ALC ILPP context 1 is unloading
