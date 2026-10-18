@@ -1,7 +1,7 @@
 {
   "objective": "Build Harborlight into an original, Android-first open-world multiplayer roleplay game with verified systems and production evidence.",
   "updatedAt": "2026-10-18",
-  "phase": "QUALITY_CHARACTER_MOTION",
+  "phase": "QUALITY_VEHICLE_HANDLING",
   "overallStatus": "IN_PROGRESS",
   "projectRoot": "/Users/admin/Desktop/RP game/harborlight-city",
   "relatedRoots": [
@@ -477,13 +477,12 @@
   ],
   "referenceAttempt": "REA identifies the installed OneState executable as arm64 Mach-O and the current REA session reports Ghidra 12.1.4 available. An earlier OneState runtime launch produced no accessible window and reached approximately 329% CPU; it remains closed to protect Mac thermals. The installed app is a compiled build, not its Unity project source; no code or assets were transferred.",
   "nextActions": [
-    "Priority 1: after Unity asset import is authorized, run Harborlight > Build Resident Character Assets and inspect proportions, Humanoid retargeting, walk/jog/sprint blend thresholds, foot contact, stopping, and remote playback.",
-    "Priority 2: improve vehicle handling and presentation with collision-aware Rigidbody control, wheel rotation, braking, reverse, suspension response, and clear entry/exit.",
+    "Priority 1: when the Unity asset-import stage is authorized, run Harborlight > Build Resident Character Assets and inspect proportions, Humanoid retargeting, walk/jog/sprint blends, foot contact, stopping, and remote playback.",
+    "Priority 2: continue vehicle quality with wheel rotation and grounded suspension behavior; validate collision response, braking, reverse, steering at speed, and entry/exit at the authorized Unity stage.",
     "Priority 3: finish the existing North Pier district with authored scenes/prefabs, licensed props, sidewalks, road markings, lighting, and building variation; do not expand the map.",
     "Priority 4: replace the most visible development IMGUI panels with polished runtime Unity UI for touch movement, vehicles, interactions, map/objectives, and careers.",
-    "Integrate the implemented Harbor Patrol slice with real world interactions after these quality priorities; arrests, citations, and reports remain deferred.",
-    "Keep Unity builds, gameplay tests, and API test suites deferred until the user authorizes the test phase; preserve an explicit deferred-test list.",
-    "At the next authorized test phase, build and inspect the same source revision on Mac and Android, then run locomotion, save migration, police career, vehicle handling, networking, and regression checks."
+    "Integrate Harbor Patrol with actual world interactions after these quality priorities; arrests, citations, and reports remain deferred.",
+    "Keep Unity builds, gameplay tests, and API test suites deferred until user authorization; preserve an explicit deferred-test list."
   ],
   "openRisks": [
     "The shaped coastline and clipped roads were validated with a bounded Mac smoke, not a full edge traversal. The full-screen map now uses curved district fills and muted local streets, but the actual road layout remains grid-based in the northern core and several districts; the current-source Android APK is now rebuilt and debug-signed, but no physical Android device is attached to verify installation, rendering, or performance.",
@@ -502,6 +501,26 @@
     "Character locomotion changes are source-only and `IMPLEMENTED_UNVERIFIED`; the current CC0 animation source only supplies idle and carry-walk, so sprint re-times a carry pose."
   ],
   "latestImplementation": {
+    "phase": "QUALITY_VEHICLE_HANDLING",
+    "status": "IMPLEMENTED_UNVERIFIED",
+    "systems": "Replaced hand-calculated MovePosition vehicle travel with Rigidbody acceleration, collision response, lateral tire-grip damping, speed-sensitive steering, coast deceleration, and a brake-to-stop-then-reverse transition for opposite input.",
+    "expectedVisualDifference": "Cars should accelerate and steer through the physics body, retain collision response, resist sideways sliding, and slow before changing direction. Wheel rotation and suspension presentation remain unfinished.",
+    "updatedScenesOrPrefabs": [],
+    "screenshotEvidence": "None. Unity build, runtime, and rendered vehicle review were not run.",
+    "verification": "Source inspection and git diff --check only. No Unity compilation, build, gameplay test, or API suite was run.",
+    "knownLimitations": "Rigidbody gravity remains disabled and wheels are not animated; there is no WheelCollider or suspension travel yet. Speed curves, braking distance, impact response, vehicle entry/exit, and Android controls need runtime review.",
+    "knownRegressions": "None established without running Unity. Physics behavior may differ from the old fixed-speed movement and requires the deferred vehicle regression checks.",
+    "gitCommitSha": "ae179a75368bfa07e6c7f48c4fac6ffd536636be",
+    "publishedCommitSha": "ae179a75368bfa07e6c7f48c4fac6ffd536636be",
+    "remaining": "After the authorized Unity review, add/import wheel rotation and suspension presentation if the model pivots support it. Then complete resident prefab gait import, authored North Pier content, runtime UI, and the end-to-end mission journey."
+  },
+  "deferredChecks": [
+    "Unity import and Harborlight > Build Resident Character Assets prefab/controller regeneration; review walk/jog/sprint blend and foot contact.",
+    "Compile/build and inspect vehicle acceleration, coast/brake distance, stop-before-reverse behavior, collision response, steering at low/high speed, and map-boundary contact.",
+    "Wheel rotation, suspension/ground contact, vehicle enter/exit, remote movement, touch controls, and sustained Android performance.",
+    "Police career gameplay and v9-to-v10 save migration; no build, gameplay test, or API test suite until user authorization."
+  ],
+  "previousImplementation": {
     "phase": "QUALITY_CHARACTER_MOTION",
     "status": "IMPLEMENTED_UNVERIFIED",
     "systems": "Added licensed CC0 idle, walk, jog, and sprint FBX source; updated editor setup to generate a Humanoid speed blend tree; mapped physical movement speed and Animator playback rate locally and over the existing network value.",
@@ -514,11 +533,5 @@
     "gitCommitSha": "cff2b34b96ed218453c71d8ce724c1cbbd213021",
     "remaining": "When the testing restriction is lifted, run the resident asset setup and review walk/jog/sprint in-game. Continue with vehicle collision-aware handling and wheel/suspension presentation, then North Pier art and runtime UI. Preserve Harbor Patrol as IMPLEMENTED_UNVERIFIED.",
     "publishedCommitSha": "cff2b34b96ed218453c71d8ce724c1cbbd213021"
-  },
-  "deferredChecks": [
-    "Unity import and Harborlight > Build Resident Character Assets prefab/controller regeneration.",
-    "Unity compilation/build and rendered walk, jog, sprint, start/stop, turn, foot-contact, and character-proportion review.",
-    "Networked animation parameter behavior, vehicle enter/exit transitions, mobile touch/sprint controls, and sustained Android performance.",
-    "Police career gameplay and v9-to-v10 save migration; no build, gameplay test, or API test suite until user authorization."
-  ]
+  }
 }
