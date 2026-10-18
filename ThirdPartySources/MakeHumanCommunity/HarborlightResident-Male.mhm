@@ -1,0 +1,23 @@
+# Written by MakeHuman UNKNOWN:UNKNOWN
+version v1.2.0
+name HarborlightResident_Male
+camera 0.0 0.0 0.0 0.0 0.0 1.0
+modifier breast/BreastSize 0.500000
+modifier breast/BreastFirmness 0.500000
+modifier macrodetails/Gender 1.000000
+modifier macrodetails/Age 0.500000
+modifier macrodetails/African 0.340000
+modifier macrodetails/Asian 0.300000
+modifier macrodetails/Caucasian 0.360000
+modifier macrodetails-universal/Muscle 0.580000
+modifier macrodetails-universal/Weight 0.470000
+modifier macrodetails-height/Height 0.540000
+modifier macrodetails-proportions/BodyProportions 0.500000
+eyes HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6
+clothes male_casualsuit01 79ced554-1d8a-4c14-a6a8-e1de90b09c32
+clothes shoes01 6e0c552e-e207-44df-8f70-c9bfdeddd8c6
+hair short02 c104cd4a-1edc-43f9-8b94-f63345a44638
+clothesHideFaces True
+skinMaterial skins/default.mhmat
+material HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/brown.mhmat
+subdivide False
