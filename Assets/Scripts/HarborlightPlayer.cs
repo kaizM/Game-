@@ -15,10 +15,12 @@ namespace Harborlight
         private float _verticalVelocity;
         private HarborlightCamera _camera;
         private HarborlightGarageService _garage;
+        private HarborlightBackendClient _backend;
         private HarborlightNetworkPlayer _networkPlayer;
         private static readonly int LocomotionSpeed = Animator.StringToHash("Speed");
 
         public bool IsDriving => _vehicle != null;
+        public bool IsNetworkSession => _networkPlayer != null && _networkPlayer.IsSpawned;
         public string VehicleName => _vehicle != null ? _vehicle.DisplayName : "";
         public float VehicleSpeed => _vehicle != null ? _vehicle.Speed : 0f;
 
@@ -35,6 +37,16 @@ namespace Harborlight
         public void BindGarage(HarborlightGarageService garage)
         {
             _garage = garage;
+        }
+
+        public void BindBackend(HarborlightBackendClient backend)
+        {
+            _backend = backend;
+        }
+
+        public void RefreshPoliceCareer()
+        {
+            _backend?.LoadPoliceCareer(null);
         }
 
         public void BindNetworkPlayer(HarborlightNetworkPlayer networkPlayer)
@@ -75,11 +87,20 @@ namespace Harborlight
 
             if (_networkPlayer != null && _networkPlayer.IsSpawned)
             {
-                var gameplayInputEnabled = (_state == null || (!_state.TutorialOpen && !_state.GarageOpen && !_state.BankOpen && !_state.InventoryOpen)) &&
+                var gameplayInputEnabled = (_state == null || (!_state.TutorialOpen && !_state.GarageOpen && !_state.BankOpen && !_state.InventoryOpen && !_state.PoliceCareerOpen)) &&
                     !GameAdminOverlay.IsVisible;
                 if (_networkPlayer.IsOwner && gameplayInputEnabled &&
                     (Input.GetKeyDown(KeyCode.E) || HarborlightTouchControls.ConsumeInteract()))
                 {
+                    var backend = _backend != null ? _backend : FindAnyObjectByType<HarborlightBackendClient>();
+                    if (backend != null && backend.IsConnected && backend.PoliceCareer != null &&
+                        !string.IsNullOrEmpty(backend.PoliceCareer.activeDispatchCode) &&
+                        TryGetNearestDispatchSite(backend.PoliceCareer.activeDispatchCode, out var dispatchSite))
+                    {
+                        _networkPlayer.RequestPoliceDispatchResolution(backend.PoliceCareer.activeDispatchCode,
+                            dispatchSite.transform.position);
+                        return;
+                    }
                     if (TryGetNearestInteractable(out var interactable))
                     {
                         if (interactable.Action == WorldAction.OpenBank) _state?.OpenBank();
@@ -113,6 +134,13 @@ namespace Harborlight
             {
                 SetLocomotionSpeed(0f);
                 if (Input.GetKeyDown(KeyCode.Escape)) _state.CloseInventory();
+                return;
+            }
+
+            if (_state != null && _state.PoliceCareerOpen)
+            {
+                SetLocomotionSpeed(0f);
+                if (Input.GetKeyDown(KeyCode.Escape)) _state.ClosePoliceCareer();
                 return;
             }
 
@@ -168,7 +196,7 @@ namespace Harborlight
 
         public Vector3 ReadNetworkMoveDirection()
         {
-            if ((_state != null && (_state.TutorialOpen || _state.GarageOpen || _state.BankOpen || _state.InventoryOpen)) || GameAdminOverlay.IsVisible)
+            if ((_state != null && (_state.TutorialOpen || _state.GarageOpen || _state.BankOpen || _state.InventoryOpen || _state.PoliceCareerOpen)) || GameAdminOverlay.IsVisible)
                 return Vector3.zero;
 
             var input = HarborlightTouchControls.Move;
@@ -181,7 +209,7 @@ namespace Harborlight
         }
 
         public bool NetworkSprintRequested =>
-            !((_state != null && (_state.TutorialOpen || _state.GarageOpen || _state.BankOpen || _state.InventoryOpen)) || GameAdminOverlay.IsVisible) &&
+            !((_state != null && (_state.TutorialOpen || _state.GarageOpen || _state.BankOpen || _state.InventoryOpen || _state.PoliceCareerOpen)) || GameAdminOverlay.IsVisible) &&
             Input.GetKey(KeyCode.LeftShift);
 
         public void ApplyAuthoritativeMovement(Vector3 direction, bool sprint)
@@ -234,6 +262,12 @@ namespace Harborlight
 
         private void InteractNearby()
         {
+            if (_state != null && !string.IsNullOrEmpty(_state.PoliceActiveDispatchCode) &&
+                TryGetNearestDispatchSite(_state.PoliceActiveDispatchCode, out var dispatchSite))
+            {
+                _state.ResolveLocalPoliceDispatch(dispatchSite.DispatchCode, out _);
+                return;
+            }
             if (!TryGetNearestInteractable(out var nearest)) return;
             if (nearest.Action == WorldAction.EnterVehicle && nearest.Vehicle != null)
             {
@@ -269,6 +303,22 @@ namespace Harborlight
 
             if (nearest == null) return false;
             return true;
+        }
+
+        private bool TryGetNearestDispatchSite(string code, out HarborlightPoliceDispatchSite nearest)
+        {
+            var sites = FindObjectsByType<HarborlightPoliceDispatchSite>();
+            nearest = null;
+            var nearestDistance = 3.2f;
+            foreach (var candidate in sites)
+            {
+                if (candidate == null || candidate.DispatchCode != code) continue;
+                var distance = Vector3.Distance(transform.position, candidate.transform.position);
+                if (distance >= nearestDistance) continue;
+                nearest = candidate;
+                nearestDistance = distance;
+            }
+            return nearest != null;
         }
 
         private void EnterVehicle(HarborlightVehicle vehicle)
@@ -352,5 +402,10 @@ namespace Harborlight
         public WorldAction Action;
         public string DisplayName;
         public HarborlightVehicle Vehicle;
+    }
+
+    public sealed class HarborlightPoliceDispatchSite : MonoBehaviour
+    {
+        public string DispatchCode;
     }
 }

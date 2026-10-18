@@ -1299,6 +1299,7 @@ namespace Harborlight
             garage.Bind(_state, backend, _vehicles);
             _garage = garage;
             movement.BindGarage(garage);
+            movement.BindBackend(backend);
             var hud = gameObject.AddComponent<HarborlightHud>();
             _hud = hud;
             hud.Bind(_state, player.transform);
@@ -1477,6 +1478,7 @@ namespace Harborlight
             var interactable = parcel.AddComponent<HarborlightInteractable>();
             interactable.Action = WorldAction.CollectCourierParcel;
             interactable.DisplayName = "Market parcel";
+            parcel.AddComponent<HarborlightPoliceDispatchSite>().DispatchCode = "market-access";
             FloatingLabel("MARKET PARCEL", position + new Vector3(0f, 1.7f, 0f));
         }
 
@@ -1498,6 +1500,7 @@ namespace Harborlight
             var interactable = panel.AddComponent<HarborlightInteractable>();
             interactable.Action = WorldAction.InspectDock;
             interactable.DisplayName = "East Pier warning circuit";
+            panel.AddComponent<HarborlightPoliceDispatchSite>().DispatchCode = "pier-circuit";
             FloatingLabel("PIER CIRCUIT", position + Vector3.up * 1.6f);
         }
 
@@ -2216,6 +2219,7 @@ namespace Harborlight
             var interactable = trigger.AddComponent<HarborlightInteractable>();
             interactable.Action = WorldAction.RepairBeacon;
             interactable.DisplayName = "Tide beacon controls";
+            trigger.AddComponent<HarborlightPoliceDispatchSite>().DispatchCode = "beacon-safety";
             FloatingLabel("TIDE BEACON", position + new Vector3(0f, 2f, 2.2f));
         }
 

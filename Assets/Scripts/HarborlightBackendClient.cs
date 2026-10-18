@@ -22,6 +22,27 @@ namespace Harborlight
     {
         [Serializable] public sealed class WalletSnapshot { public string playerId; public int gems; }
         [Serializable] public sealed class BankSnapshot { public int cashCredits; public int bankCredits; }
+        [Serializable] public sealed class PoliceCareerSnapshot
+        {
+            public string playerId;
+            public bool eligible;
+            public bool applied;
+            public bool isOnDuty;
+            public int callsCompleted;
+            public int creditsEarned;
+            public string activeDispatchCode;
+            public string activeDispatchName;
+            public string activeDispatchTarget;
+            public int dispatchReward;
+            public string updatedAtUtc;
+        }
+        [Serializable] public sealed class PoliceCareerActionResult
+        {
+            public bool accepted;
+            public bool replayed;
+            public string message;
+            public PoliceCareerSnapshot career;
+        }
         [Serializable] public sealed class BankTransferResult
         {
             public bool succeeded;
@@ -85,6 +106,7 @@ namespace Harborlight
         [Serializable] private sealed class SpendRequest { public string sku; }
         [Serializable] private sealed class SpendResult { public bool succeeded; public int balanceGems; public string result; }
         [Serializable] private sealed class BankTransferRequest { public string direction; public int amount; }
+        [Serializable] private sealed class PoliceCareerActionRequest { public string requestId; public string action; }
         [Serializable] private sealed class InventoryPurchaseRequest { public string sku; public int quantity; }
         [Serializable] private sealed class InventoryEquipRequest { public string sku; public bool equipped; }
         [Serializable] private sealed class BankTransactionList { public HarborlightBankTransaction[] items; }
@@ -100,6 +122,8 @@ namespace Harborlight
         private bool _requestingRealtimeJoinTicket;
         private bool _bankLoading;
         private bool _bankTransferring;
+        private bool _policeCareerLoading;
+        private bool _policeCareerMutating;
         private bool _inventoryLoading;
         private bool _inventoryMutating;
         private readonly Dictionary<string, string> _pendingSpendKeys = new Dictionary<string, string>();
@@ -113,6 +137,8 @@ namespace Harborlight
         public int BankCredits { get; private set; }
         public bool BankLoaded { get; private set; }
         public bool IsBankBusy => _bankLoading || _bankTransferring;
+        public bool IsPoliceCareerBusy => _policeCareerLoading || _policeCareerMutating;
+        public PoliceCareerSnapshot PoliceCareer { get; private set; }
         public IReadOnlyList<HarborlightBankTransaction> BankTransactions => _bankTransactions;
         public string Status { get; private set; } = "Offline play available";
         public IReadOnlyList<Cosmetic> Catalog { get; private set; } = new Cosmetic[0];
@@ -265,6 +291,69 @@ namespace Harborlight
             }
             if (_bankLoading) return;
             StartCoroutine(LoadBankRoutine(completed));
+        }
+
+        public void LoadPoliceCareer(Action<bool, string> completed)
+        {
+            if (!IsConnected)
+            {
+                completed?.Invoke(false, "Connect to the Harborlight service to access Harbor Patrol.");
+                return;
+            }
+            if (_policeCareerLoading) return;
+            StartCoroutine(LoadPoliceCareerRoutine(completed));
+        }
+
+        private IEnumerator LoadPoliceCareerRoutine(Action<bool, string> completed)
+        {
+            _policeCareerLoading = true;
+            PoliceCareerSnapshot result = null;
+            string error = null;
+            yield return Send("GET", "/api/v1/police-career", null, true, null, (request, body) =>
+            {
+                if (request.responseCode >= 200 && request.responseCode < 300)
+                    result = JsonUtility.FromJson<PoliceCareerSnapshot>(body);
+                else error = ErrorMessage(request, body);
+            });
+
+            if (result != null) PoliceCareer = result;
+            _policeCareerLoading = false;
+            completed?.Invoke(result != null, result != null ? "Harbor Patrol status updated." :
+                error ?? "The Harbor Patrol service returned an invalid response.");
+        }
+
+        public void RunPoliceCareerAction(string action, Action<bool, string> completed)
+        {
+            if (!IsConnected || _policeCareerMutating ||
+                (action != "Apply" && action != "StartDuty" && action != "EndDuty" && action != "AcceptDispatch"))
+            {
+                completed?.Invoke(false, "Harbor Patrol is unavailable or the action is invalid.");
+                return;
+            }
+            StartCoroutine(RunPoliceCareerActionRoutine(action, completed));
+        }
+
+        private IEnumerator RunPoliceCareerActionRoutine(string action, Action<bool, string> completed)
+        {
+            _policeCareerMutating = true;
+            PoliceCareerActionResult result = null;
+            string error = null;
+            yield return Send("POST", "/api/v1/police-career/actions",
+                JsonUtility.ToJson(new PoliceCareerActionRequest
+                {
+                    requestId = Guid.NewGuid().ToString("D"),
+                    action = action
+                }), true, null, (request, body) =>
+                {
+                    if (request.responseCode >= 200 && request.responseCode < 300)
+                        result = JsonUtility.FromJson<PoliceCareerActionResult>(body);
+                    else error = ErrorMessage(request, body);
+                });
+
+            if (result != null && result.career != null) PoliceCareer = result.career;
+            _policeCareerMutating = false;
+            completed?.Invoke(result != null && result.career != null && result.accepted,
+                result?.message ?? error ?? "The Harbor Patrol action could not be confirmed.");
         }
 
         private IEnumerator LoadBankRoutine(Action<bool, string> completed)

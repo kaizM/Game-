@@ -1,7 +1,7 @@
 {
   "objective": "Build Harborlight into an original, Android-first open-world multiplayer roleplay game with verified systems and production evidence.",
   "updatedAt": "2026-10-18",
-  "phase": "M5-inventory-API-24-tests; M10-14.24km2-map-layout-audit-and-current-HUD-review; expanded-map-two-client-visibility-pass; ground-grade-runtime-verified; map-ground-contact-and-save-bounds-runtime-smoke; world-draw-range-aligned-with-streaming; M10-24.70km2-multiplayer-map-expansion-and-runtime-smoke; M12-current-source-Android-ARM64-development-build-and-package-verification; M10-procedural-coastal-sky-and-expanded-map-ground-contact-QA; M10-three-Quaternius-CC0-outer-building-forms-grounded-and-runtime-smoke-verified; M10-tapered-peninsula-coastline-and-clipped-roads-runtime-smoke-verified; M10-outer-road-hierarchy-curved-connectors-and-map-layout-smoke-verified; M5-Unity-inventory-UI-authenticated-loopback-smoke-passed; M10-curved-district-cartography-and-road-hierarchy-mac-QA-verified; M12-current-source-Android-ARM64-development-APK-package-and-signature-verified",
+  "phase": "M6_POLICE_CAREER",
   "overallStatus": "IN_PROGRESS",
   "projectRoot": "/Users/admin/Desktop/RP game/harborlight-city",
   "relatedRoots": [
@@ -25,7 +25,7 @@
     "M3": "IMPLEMENTED_UNVERIFIED",
     "M4": "VERIFIED",
     "M5": "IN_PROGRESS",
-    "M6": "NOT_STARTED",
+    "M6": "IN_PROGRESS",
     "M7": "NOT_STARTED",
     "M8": "NOT_STARTED",
     "M9": "NOT_STARTED",
@@ -477,15 +477,13 @@
   ],
   "referenceAttempt": "REA identifies the installed OneState executable as arm64 Mach-O and the current REA session reports Ghidra 12.1.4 available. An earlier OneState runtime launch produced no accessible window and reached approximately 329% CPU; it remains closed to protect Mac thermals. The installed app is a compiled build, not its Unity project source; no code or assets were transferred.",
   "nextActions": [
-    "Install the current-source ARM64 APK on a physical Android device and verify launch; no device is attached.",
-    "The outer road hierarchy has been reduced and two curved connectors are in place; next traverse the north, shore, and southern routes, validate road junction collision, and add original functional destinations before approving M10 map art.",
-    "Continue M10 visual work: diversify the central architecture, fill open city blocks with licensed structures and props, and review close-up/game-route captures before approving the art.",
-    "Traverse representative routes across the 24.70 km\u00b2 map, cover all ten named outer districts and 36 entry zones, and exercise selected later-client IDs in a live session; verify collision, unload/reload, Android behavior, and load before setting a player-count target.",
-    "Finish M5 player QA for the Unity bank panel, physical inventory button/touch input, network-loss idempotent retry, reconnect/replay, and two-client mission concurrency.",
-    "Test two-client mission concurrency and complete-chain reconnect/replay; then continue the M5 acceptance gate.",
-    "Start the M6 police-career workflow with server-authoritative recruitment, duty, dispatch, and auditable report actions after M5 is closed.",
-    "Add playable interiors and traffic, then measure PBR response and mobile texture budgets after architecture infill.",
-    "Install the current-source ARM64 APK on a physical Android device and test touch controls, traversal, networking, background/resume, sustained FPS, memory, and thermal behavior; no device is attached."
+    "Priority 1: finish the resident locomotion system (walk/jog/run, starts/stops, turning, and grounded motion) using licensed clips already in the project; preserve camera and network behavior.",
+    "Priority 2: improve vehicle handling and presentation with collision-aware Rigidbody control, wheel rotation, braking, reverse, suspension response, and clear entry/exit.",
+    "Priority 3: finish the existing North Pier district with authored scenes/prefabs, licensed props, sidewalks, road markings, lighting, and building variation; do not expand the map.",
+    "Priority 4: replace the most visible development IMGUI panels with polished runtime Unity UI for touch movement, vehicles, interactions, map/objectives, and careers.",
+    "Integrate the implemented Harbor Patrol slice with real world interactions after these quality priorities; arrests, citations, and reports remain deferred.",
+    "Keep Unity builds, gameplay tests, and API test suites deferred until the user authorizes the test phase; preserve an explicit deferred-test list.",
+    "At the next authorized test phase, build and inspect the same source revision on Mac and Android, then run save migration, police career, vehicle handling, networking, and regression checks."
   ],
   "openRisks": [
     "The shaped coastline and clipped roads were validated with a bounded Mac smoke, not a full edge traversal. The full-screen map now uses curved district fills and muted local streets, but the actual road layout remains grid-based in the northern core and several districts; the current-source Android APK is now rebuilt and debug-signed, but no physical Android device is attached to verify installation, rendering, or performance.",
@@ -499,6 +497,14 @@
     "The first avatar-interest smoke attempt used Unity\u2019s standard profile. The saved position was restored from the untouched v6 save and the test token removed, but the pre-test session-token state was not recorded and cannot be recovered if one existed.",
     "The outer-city screenshot is a first-frame capture before streamed fa\u00e7ades load; the 24.70 km\u00b2 map remains sparse and uses two repeated kits, so production architecture and full visual traversal are not verified.",
     "The current road-hierarchy Mac smoke passes its bounded map probes but is not full route traversal or device evidence. The Player.log also reports a Northshore playable ground mesh triangle over 500 units; investigate actual cooked collider geometry and query behavior before relying on that terrain collider for vehicle physics.",
-    "The inventory Mac QA smoke invoked HarborlightBackendClient methods directly while rendering the live bag; actual button/touch activation and ambiguous network-result retry remain unverified. Android and production commerce are not ready."
-  ]
+    "The inventory Mac QA smoke invoked HarborlightBackendClient methods directly while rendering the live bag; actual button/touch activation and ambiguous network-result retry remain unverified. Android and production commerce are not ready.",
+    "Harbor Patrol career and local v9-to-v10 migration are source-implemented but `IMPLEMENTED_UNVERIFIED`; do not infer runtime or migration success until the deferred test phase."
+  ],
+  "latestImplementation": {
+    "phase": "M6_POLICE_CAREER",
+    "status": "IMPLEMENTED_UNVERIFIED",
+    "systems": "Base Harbor Patrol slice: application eligibility, duty state, three original dispatches, local save schema v10 with v9 migration, and server-key-protected multiplayer dispatch resolution with idempotent cash rewards.",
+    "verification": "Source changes and documentation committed. No Unity build, gameplay test, or API test suite was run in this pass. Earlier migration scaffolding reported an API build before the final small call-counter cap edit; current source remains unverified.",
+    "remaining": "Arrests, citations, incident reports, emergency-service roles, save migration behavior, Unity runtime, API integration, replay/concurrency, and device behavior remain open."
+  }
 }

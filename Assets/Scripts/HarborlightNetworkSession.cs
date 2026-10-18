@@ -752,6 +752,70 @@ namespace Harborlight
                     " accepted=" + response.accepted + " replayed=" + response.replayed + " credits=" + response.credits);
         }
 
+        public void SubmitPoliceDispatchResolution(HarborlightNetworkPlayer player, string dispatchCode)
+        {
+            if (_manager == null || !_manager.IsServer || player == null ||
+                !player.TryGetAuthenticatedPlayerId(out var playerId) || !IsPoliceDispatchCode(dispatchCode))
+                return;
+            if (!_pendingMissionActions.Add(player.OwnerClientId))
+            {
+                player.ReportServerActionMessage("Your previous activity is still syncing. Try again shortly.");
+                return;
+            }
+            StartCoroutine(SubmitPoliceDispatchResolutionRoutine(player, player.OwnerClientId, playerId, dispatchCode,
+                Guid.NewGuid()));
+        }
+
+        private IEnumerator SubmitPoliceDispatchResolutionRoutine(HarborlightNetworkPlayer player, ulong clientId,
+            Guid playerId, string dispatchCode, Guid requestId)
+        {
+            var payload = JsonUtility.ToJson(new PoliceDispatchResolutionRequest
+            {
+                requestId = requestId.ToString("D"),
+                dispatchCode = dispatchCode
+            });
+            PoliceDispatchResolutionResponse response = null;
+            using (var request = new UnityWebRequest(_serverApiBaseUrl + "/api/v1/server/players/" +
+                playerId.ToString("D") + "/police-dispatches/resolve", "POST"))
+            {
+                request.timeout = 12;
+                request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(payload));
+                request.downloadHandler = new DownloadHandlerBuffer();
+                request.SetRequestHeader("Content-Type", "application/json");
+                request.SetRequestHeader("X-Harborlight-Server-Key", _serverSecret);
+                yield return request.SendWebRequest();
+                if (request.responseCode >= 200 && request.responseCode < 300)
+                    response = JsonUtility.FromJson<PoliceDispatchResolutionResponse>(request.downloadHandler.text);
+                else
+                    Debug.LogWarning("Harborlight police dispatch failed (HTTP " + request.responseCode + ").");
+            }
+
+            _pendingMissionActions.Remove(clientId);
+            if (!IsValidPoliceDispatchResolution(response, playerId, requestId, dispatchCode))
+            {
+                if (player != null && player.IsSpawned)
+                    player.ReportServerActionMessage("Could not save that dispatch. Confirm it is still active and try again.");
+                yield break;
+            }
+
+            if (player != null && player.IsSpawned)
+                player.ApplyPoliceDispatchResult(response.credits, response.message);
+        }
+
+        private static bool IsValidPoliceDispatchResolution(PoliceDispatchResolutionResponse response, Guid playerId,
+            Guid requestId, string dispatchCode)
+            => response != null && response.accepted && response.credits >= 0 && response.credits <= 999999 &&
+                response.callsCompleted >= 0 && response.callsCompleted <= 999999 &&
+                Guid.TryParse(response.playerId, out var responsePlayerId) && responsePlayerId == playerId &&
+                Guid.TryParse(response.requestId, out var responseRequestId) && responseRequestId == requestId &&
+                response.dispatchCode == dispatchCode && response.career != null &&
+                response.career.playerId == playerId.ToString("D") &&
+                response.career.callsCompleted == response.callsCompleted &&
+                string.IsNullOrEmpty(response.career.activeDispatchCode);
+
+        private static bool IsPoliceDispatchCode(string dispatchCode)
+            => dispatchCode is "beacon-safety" or "market-access" or "pier-circuit";
+
         private static bool IsValidMissionProgress(MissionProgressResponse progress, Guid playerId)
             => progress != null && Guid.TryParse(progress.playerId, out var responsePlayerId) && responsePlayerId == playerId &&
                 progress.beaconStage >= 0 && progress.beaconStage <= 2 &&
@@ -787,6 +851,23 @@ namespace Harborlight
         [Serializable] private sealed class TicketConsumptionRequest { public string ticket; }
         [Serializable] private sealed class TicketConsumptionResponse { public string playerId; }
         [Serializable] private sealed class MissionActionRequest { public string requestId; public string action; }
+        [Serializable] private sealed class PoliceDispatchResolutionRequest
+        {
+            public string requestId;
+            public string dispatchCode;
+        }
+        [Serializable] private sealed class PoliceDispatchResolutionResponse
+        {
+            public string playerId;
+            public string requestId;
+            public string dispatchCode;
+            public bool accepted;
+            public bool replayed;
+            public string message;
+            public int credits;
+            public int callsCompleted;
+            public HarborlightBackendClient.PoliceCareerSnapshot career;
+        }
         [Serializable] private sealed class MissionProgressResponse
         {
             public string playerId;

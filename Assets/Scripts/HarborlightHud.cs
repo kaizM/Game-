@@ -24,11 +24,13 @@ namespace Harborlight
         private string _bankAmountText = "50";
         private string _bankFeedback = "Enter an amount, then deposit or withdraw.";
         private string _inventoryFeedback = "Your supplies and equipment.";
+        private string _policeCareerFeedback = "Complete the three starter jobs to qualify.";
         private Vector2 _garageScroll;
         private Vector2 _inventoryScroll;
         private bool _districtMapExpanded;
         private bool _bankRefreshRequested;
         private bool _inventoryRefreshRequested;
+        private bool _policeCareerRefreshRequested;
         private bool _inventoryWasOnline;
         private HarborlightNetworkPlayer[] _networkMapPlayers;
         private float _nextNetworkMapPlayerRefreshAt;
@@ -90,6 +92,13 @@ namespace Harborlight
                 return;
             }
 
+            if (!_state.PoliceCareerOpen) _policeCareerRefreshRequested = false;
+            if (_state.PoliceCareerOpen)
+            {
+                if (!GameAdminOverlay.IsVisible) DrawPoliceCareerPanel();
+                return;
+            }
+
             if (!GameAdminOverlay.IsVisible && (_movement == null || !_movement.IsDriving) &&
                 Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.I)
             {
@@ -100,6 +109,12 @@ namespace Harborlight
             if (!GameAdminOverlay.IsVisible && Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.M)
             {
                 _districtMapExpanded = !_districtMapExpanded;
+                Event.current.Use();
+            }
+            if (!GameAdminOverlay.IsVisible && (_movement == null || !_movement.IsDriving) &&
+                Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.P)
+            {
+                _state.OpenPoliceCareer();
                 Event.current.Use();
             }
             if (_districtMapExpanded && !GameAdminOverlay.IsVisible)
@@ -129,7 +144,7 @@ namespace Harborlight
             GUI.Label(new Rect(34, Screen.height - 96, 475, 30), CurrentPrompt(), _body);
             var controls = _movement != null && _movement.IsDriving
                 ? "W/S accelerate / brake   ·   A/D steer   ·   E exit   ·   F1 admin"
-                : "WASD move   ·   Shift jog   ·   E interact   ·   I inventory   ·   F1 admin";
+                : "WASD move   ·   Shift jog   ·   E interact   ·   I bag   ·   P career   ·   F1 admin";
             GUI.Label(new Rect(34, Screen.height - 64, 475, 24), controls, _small);
 
             if (!GameAdminOverlay.IsVisible) DrawDistrictMap();
@@ -153,6 +168,9 @@ namespace Harborlight
             GUI.Label(new Rect(safe.xMin + 20f, topInset + 59f, panelWidth - 18f, 20f), "¢ " + _state.DisplayCredits + "     REP " + _state.DisplayReputation, body);
             var wallet = _backend != null && _backend.IsConnected ? "GEMS " + _backend.Gems : "GEMS OFFLINE";
             GUI.Label(new Rect(safe.xMin + 20f, topInset + 78f, panelWidth - 18f, 17f), wallet, small);
+            if (!GameAdminOverlay.IsVisible && (_movement == null || !_movement.IsDriving) &&
+                GUI.Button(new Rect(safe.xMax - 88f, topInset + 15f, 78f, 30f), "CAREER", _card))
+                _state.OpenPoliceCareer();
 
             if (!GameAdminOverlay.IsVisible) DrawDistrictMap();
 
@@ -182,6 +200,126 @@ namespace Harborlight
             GUI.Box(brake, "BRAKE", _card);
             GUI.Box(action, _movement != null && _movement.IsDriving ? "DRIVE" : "USE", _card);
             GUI.Box(exit, _movement != null && _movement.IsDriving ? "EXIT" : "", _card);
+        }
+
+        private void DrawPoliceCareerPanel()
+        {
+            var networkSession = _movement != null && _movement.IsNetworkSession;
+            var online = networkSession && _backend != null && _backend.IsConnected;
+            if (networkSession && online && !_policeCareerRefreshRequested)
+            {
+                _policeCareerRefreshRequested = true;
+                _backend.LoadPoliceCareer((succeeded, message) => _policeCareerFeedback = message);
+            }
+
+            var safe = Screen.safeArea;
+            var topInset = Screen.height - safe.yMax;
+            var width = Mathf.Min(HarborlightTouchControls.IsSupported ? 560f : 620f, safe.width - 24f);
+            var height = Mathf.Min(390f, safe.height - 24f);
+            var panel = new Rect(safe.xMin + (safe.width - width) * 0.5f,
+                topInset + (safe.height - height) * 0.5f, width, height);
+            GUI.Box(panel, GUIContent.none, _card);
+            GUI.Label(new Rect(panel.x + 18f, panel.y + 14f, panel.width - 110f, 30f), "HARBOR PATROL", _title);
+            if (GUI.Button(new Rect(panel.xMax - 82f, panel.y + 12f, 66f, 32f), "CLOSE"))
+                _state.ClosePoliceCareer();
+
+            var career = online ? _backend.PoliceCareer : null;
+            if (networkSession && career == null)
+            {
+                GUI.Label(new Rect(panel.x + 20f, panel.y + 62f, panel.width - 40f, 34f),
+                    online ? "Loading officer records…" : "Connect to Harborlight to apply and save an officer career.", _body);
+                if (online && !(_backend.IsPoliceCareerBusy) &&
+                    GUI.Button(new Rect(panel.x + 20f, panel.y + 108f, 130f, 38f), "RETRY LOAD"))
+                {
+                    _policeCareerRefreshRequested = false;
+                    return;
+                }
+                GUI.Label(new Rect(panel.x + 20f, panel.yMax - 48f, panel.width - 40f, 34f),
+                    "Career progression requires a service connection. Free roam remains available offline.", _small);
+                return;
+            }
+
+            var applied = networkSession ? career.applied : _state.PoliceApplied;
+            var onDuty = networkSession ? career.isOnDuty : _state.PoliceOnDuty;
+            var eligible = networkSession ? career.eligible : _state.IsEligibleForPoliceCareer;
+            var callsCompleted = networkSession ? career.callsCompleted : _state.PoliceCallsCompleted;
+            var creditsEarned = networkSession ? career.creditsEarned : _state.PoliceCreditsEarned;
+            var activeDispatchCode = networkSession ? career.activeDispatchCode : _state.PoliceActiveDispatchCode;
+            var activeDispatchName = networkSession ? career.activeDispatchName : HarborlightGameState.PoliceDispatchName(activeDispatchCode);
+            var activeDispatchTarget = networkSession ? career.activeDispatchTarget : HarborlightGameState.PoliceDispatchTarget(activeDispatchCode);
+            var dispatchReward = networkSession ? career.dispatchReward : HarborlightGameState.PoliceDispatchReward(activeDispatchCode);
+            var canSendCareerAction = !networkSession || (online && !_backend.IsPoliceCareerBusy);
+
+            GUI.Label(new Rect(panel.x + 20f, panel.y + 58f, panel.width - 40f, 28f),
+                applied ? (onDuty ? "OFFICER  ·  ON DUTY" : "OFFICER  ·  OFF DUTY") : "HARBOR PATROL RECRUITMENT", _small);
+            GUI.Label(new Rect(panel.x + 20f, panel.y + 92f, panel.width - 40f, 30f),
+                "CALLS  " + callsCompleted + "       CAREER PAY  ¢ " + creditsEarned, _body);
+
+            if (!applied)
+            {
+                GUI.Label(new Rect(panel.x + 20f, panel.y + 132f, panel.width - 40f, 56f),
+                    eligible ? "Your record qualifies. Apply to join the Harbor Patrol." :
+                        "Qualification: finish the Beacon, Courier, and Pier starter jobs and reach 4 reputation. " +
+                        "Current reputation: " + _state.DisplayReputation + ".", _body);
+                GUI.enabled = canSendCareerAction && eligible;
+                if (GUI.Button(new Rect(panel.x + 20f, panel.y + 206f, 190f, 42f), "APPLY TO HARBOR PATROL"))
+                    RunPoliceCareerAction("Apply");
+                GUI.enabled = true;
+            }
+            else
+            {
+                if (!onDuty)
+                {
+                    GUI.enabled = canSendCareerAction;
+                    if (GUI.Button(new Rect(panel.x + 20f, panel.y + 144f, 190f, 42f), "GO ON DUTY"))
+                        RunPoliceCareerAction("StartDuty");
+                    GUI.enabled = true;
+                }
+                else if (string.IsNullOrEmpty(activeDispatchCode))
+                {
+                    GUI.enabled = canSendCareerAction;
+                    if (GUI.Button(new Rect(panel.x + 20f, panel.y + 144f, 190f, 42f), "REQUEST DISPATCH"))
+                        RunPoliceCareerAction("AcceptDispatch");
+                    GUI.enabled = true;
+                }
+                else
+                {
+                    GUI.Label(new Rect(panel.x + 20f, panel.y + 142f, panel.width - 40f, 28f),
+                        activeDispatchName + "  ·  ¢ " + dispatchReward, _body);
+                    GUI.Label(new Rect(panel.x + 20f, panel.y + 174f, panel.width - 40f, 48f),
+                        activeDispatchTarget + ". Travel to the listed site and use E / USE to complete it.", _small);
+                }
+
+                GUI.enabled = canSendCareerAction && onDuty;
+                if (GUI.Button(new Rect(panel.x + 224f, panel.y + 144f, 140f, 42f), "END DUTY"))
+                    RunPoliceCareerAction("EndDuty");
+                GUI.enabled = true;
+            }
+
+            var feedback = _policeCareerFeedback;
+            GUI.Label(new Rect(panel.x + 20f, panel.yMax - 52f, panel.width - 40f, 42f), feedback, _small);
+        }
+
+        private void RunPoliceCareerAction(string action)
+        {
+            _policeCareerFeedback = "Saving officer status…";
+            if (_movement == null || !_movement.IsNetworkSession)
+            {
+                var accepted = _state.ApplyLocalPoliceCareerAction(action, out var message);
+                _policeCareerFeedback = message;
+                if (accepted) _policeCareerRefreshRequested = false;
+                return;
+            }
+
+            _backend.RunPoliceCareerAction(action, (succeeded, message) =>
+            {
+                _policeCareerFeedback = message;
+                if (succeeded)
+                    _backend.LoadPoliceCareer((loaded, status) =>
+                    {
+                        if (!loaded) _policeCareerFeedback = status;
+                    });
+            });
         }
 
         private void DrawTutorial()
@@ -508,6 +646,17 @@ namespace Harborlight
                 return "DRIVING  ·  " + _movement.VehicleName + "  ·  " + Mathf.RoundToInt(_movement.VehicleSpeed * 3.6f) + " km/h";
             }
             if (_player == null) return _state.LastMessage;
+            var career = _backend != null ? _backend.PoliceCareer : null;
+            var activeDispatchCode = _movement != null && _movement.IsNetworkSession
+                ? career?.activeDispatchCode ?? ""
+                : _state.PoliceActiveDispatchCode;
+            if (!string.IsNullOrEmpty(activeDispatchCode))
+            {
+                foreach (var site in FindObjectsByType<HarborlightPoliceDispatchSite>())
+                    if (site != null && site.DispatchCode == activeDispatchCode &&
+                        Vector3.Distance(_player.position, site.transform.position) <= 3.2f)
+                        return "E  ·  Complete " + HarborlightGameState.PoliceDispatchName(activeDispatchCode);
+            }
             var candidates = FindObjectsByType<HarborlightInteractable>();
             HarborlightInteractable nearest = null;
             var distance = 3.2f;

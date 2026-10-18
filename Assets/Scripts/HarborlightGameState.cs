@@ -59,9 +59,10 @@ namespace Harborlight
     public sealed class HarborlightGameState : MonoBehaviour
     {
         private static string LegacySaveKey => HarborlightLocalProfileStorage.PlayerPrefsKey("harborlight-save-v1");
-        private const int SaveSchemaVersion = 9;
+        private const int SaveSchemaVersion = 10;
         public const int VehicleCatalogSize = 8;
-        private static string SavePath => Path.Combine(HarborlightLocalProfileStorage.PersistentDataPath, "harborlight-save-v9.json");
+        private static string SavePath => Path.Combine(HarborlightLocalProfileStorage.PersistentDataPath, "harborlight-save-v10.json");
+        private static string PreviousSavePathV9 => Path.Combine(HarborlightLocalProfileStorage.PersistentDataPath, "harborlight-save-v9.json");
         private static string PreviousSavePathV8 => Path.Combine(HarborlightLocalProfileStorage.PersistentDataPath, "harborlight-save-v8.json");
         private static string PreviousSavePathV7 => Path.Combine(HarborlightLocalProfileStorage.PersistentDataPath, "harborlight-save-v7.json");
         private static string PreviousSavePathV6 => Path.Combine(HarborlightLocalProfileStorage.PersistentDataPath, "harborlight-save-v6.json");
@@ -97,6 +98,11 @@ namespace Harborlight
             public float vehicleX;
             public float vehicleZ;
             public float vehicleHeading;
+            public bool policeApplied;
+            public bool policeOnDuty;
+            public int policeCallsCompleted;
+            public int policeCreditsEarned;
+            public string policeActiveDispatchCode = "";
         }
 
         public static readonly Vector3 BeaconPosition = new Vector3(0f, 0f, 33f);
@@ -113,6 +119,14 @@ namespace Harborlight
         public CourierStage CurrentCourierStage { get; private set; }
         public InspectionStage CurrentInspectionStage { get; private set; }
         public int DeliveriesCompleted { get; private set; }
+        public bool PoliceApplied { get; private set; }
+        public bool PoliceOnDuty { get; private set; }
+        public int PoliceCallsCompleted { get; private set; }
+        public int PoliceCreditsEarned { get; private set; }
+        public string PoliceActiveDispatchCode { get; private set; } = "";
+        public bool IsEligibleForPoliceCareer => DisplayContract == ContractStage.Complete &&
+            DisplayCourierStage == CourierStage.Complete && DisplayInspectionStage == InspectionStage.Complete &&
+            DisplayReputation >= 4;
         public int DisplayCredits => _hasNetworkCashSnapshot ? _networkCredits : Credits;
         public int DisplayBankCredits => _hasNetworkBankSnapshot ? _networkBankCredits : BankCredits;
         public int DisplayReputation => _hasNetworkSnapshot ? _networkReputation : Reputation;
@@ -126,6 +140,7 @@ namespace Harborlight
         public bool GarageOpen { get; private set; }
         public bool BankOpen { get; private set; }
         public bool InventoryOpen { get; private set; }
+        public bool PoliceCareerOpen { get; private set; }
         public bool TutorialOpen => !_tutorialCompleted;
         public Transform Player { get; private set; }
         public Vector2 LoadedPlayerPosition => new Vector2(_loadedX, _loadedZ);
@@ -485,6 +500,7 @@ namespace Harborlight
                 case "reset_save":
                     PlayerPrefs.DeleteKey(LegacySaveKey);
                     if (File.Exists(SavePath)) File.Delete(SavePath);
+                    if (File.Exists(PreviousSavePathV9)) File.Delete(PreviousSavePathV9);
                     if (File.Exists(PreviousSavePathV7)) File.Delete(PreviousSavePathV7);
                     if (File.Exists(PreviousSavePathV6)) File.Delete(PreviousSavePathV6);
                     if (File.Exists(PreviousSavePathV5)) File.Delete(PreviousSavePathV5);
@@ -497,6 +513,11 @@ namespace Harborlight
                     CurrentCourierStage = CourierStage.Available;
                     CurrentInspectionStage = InspectionStage.Available;
                     DeliveriesCompleted = 0;
+                    PoliceApplied = false;
+                    PoliceOnDuty = false;
+                    PoliceCallsCompleted = 0;
+                    PoliceCreditsEarned = 0;
+                    PoliceActiveDispatchCode = "";
                     SelectedVehicleIndex = 0;
                     OwnedVehicles = new[] { true, false, false, false, false, false, false, false };
                     _vehiclePaintSkus = new string[VehicleCatalogSize];
@@ -564,6 +585,7 @@ namespace Harborlight
         public void OpenGarage()
         {
             CloseInventory();
+            PoliceCareerOpen = false;
             BankOpen = false;
             GarageOpen = true;
             HarborlightTouchControls.SetUiBlocked(true);
@@ -579,6 +601,7 @@ namespace Harborlight
         public void OpenBank()
         {
             CloseInventory();
+            PoliceCareerOpen = false;
             GarageOpen = false;
             BankOpen = true;
             HarborlightTouchControls.SetUiBlocked(true);
@@ -595,6 +618,7 @@ namespace Harborlight
         {
             GarageOpen = false;
             BankOpen = false;
+            PoliceCareerOpen = false;
             InventoryOpen = true;
             HarborlightTouchControls.SetUiBlocked(true);
         }
@@ -604,6 +628,136 @@ namespace Harborlight
             InventoryOpen = false;
             HarborlightTouchControls.SetUiBlocked(false);
         }
+
+        public void OpenPoliceCareer()
+        {
+            CloseInventory();
+            GarageOpen = false;
+            BankOpen = false;
+            PoliceCareerOpen = true;
+            HarborlightTouchControls.SetUiBlocked(true);
+        }
+
+        public void ClosePoliceCareer()
+        {
+            PoliceCareerOpen = false;
+            HarborlightTouchControls.SetUiBlocked(false);
+        }
+
+        public bool ApplyLocalPoliceCareerAction(string action, out string message)
+        {
+            var accepted = false;
+            message = "Complete the Beacon, Courier, and Pier jobs with at least 4 reputation before applying.";
+            if (action == "Apply")
+            {
+                if (PoliceApplied) message = "Your Harbor Patrol application is already on file.";
+                else if (IsEligibleForPoliceCareer)
+                {
+                    PoliceApplied = true;
+                    accepted = true;
+                    message = "Harbor Patrol application approved. Report for duty when you are ready.";
+                }
+            }
+            else if (!PoliceApplied)
+            {
+                message = "Apply to Harbor Patrol first.";
+            }
+            else if (action == "StartDuty")
+            {
+                accepted = !PoliceOnDuty;
+                PoliceOnDuty = true;
+                message = accepted ? "You are on duty. Accept a dispatch when ready." : "You are already on duty.";
+            }
+            else if (action == "EndDuty")
+            {
+                accepted = PoliceOnDuty;
+                PoliceOnDuty = false;
+                PoliceActiveDispatchCode = "";
+                message = accepted ? "You are off duty. Your active dispatch was cleared." : "You are already off duty.";
+            }
+            else if (action == "AcceptDispatch")
+            {
+                if (!PoliceOnDuty)
+                    message = "Go on duty before requesting a dispatch.";
+                else if (!string.IsNullOrEmpty(PoliceActiveDispatchCode))
+                    message = "Finish your current dispatch first.";
+                else
+                {
+                    PoliceActiveDispatchCode = PoliceDispatchCodeFor(PoliceCallsCompleted);
+                    accepted = true;
+                    message = "Dispatch assigned: " + PoliceDispatchName(PoliceActiveDispatchCode) + ". " +
+                        PoliceDispatchTarget(PoliceActiveDispatchCode) + ".";
+                }
+            }
+            else
+            {
+                message = "That Harbor Patrol action is unavailable.";
+            }
+
+            SetMessage(message);
+            if (accepted) Save();
+            return accepted;
+        }
+
+        public bool ResolveLocalPoliceDispatch(string dispatchCode, out string message)
+        {
+            var reward = PoliceDispatchReward(dispatchCode);
+            if (!PoliceApplied || !PoliceOnDuty || PoliceActiveDispatchCode != dispatchCode || reward <= 0)
+            {
+                message = "That Harbor Patrol dispatch is not active.";
+                return false;
+            }
+
+            var now = DateTimeOffset.UtcNow.ToString("O");
+            var previousCredits = Credits;
+            Credits = Mathf.Min(999999, Credits + reward);
+            var earned = Credits - previousCredits;
+            PoliceCallsCompleted = Mathf.Min(999999, PoliceCallsCompleted + 1);
+            PoliceCreditsEarned = Mathf.Min(999999, PoliceCreditsEarned + earned);
+            PoliceActiveDispatchCode = "";
+            message = earned > 0 ? "Dispatch complete. You earned " + earned + " credits." : "Dispatch complete. Cash limit reached.";
+            SetMessage(message);
+            if (earned > 0)
+                _bankTransactions.Insert(0, new HarborlightBankTransaction
+                {
+                    direction = "police_reward", amount = earned, cashDelta = earned, bankDelta = 0,
+                    cashBalanceAfter = Credits, bankBalanceAfter = BankCredits, createdAtUtc = now
+                });
+            Save();
+            return true;
+        }
+
+        public static string PoliceDispatchName(string code) => code switch
+        {
+            "beacon-safety" => "Tide Beacon Safety",
+            "market-access" => "Market Access Check",
+            "pier-circuit" => "East Pier Circuit Call",
+            _ => ""
+        };
+
+        public static string PoliceDispatchTarget(string code) => code switch
+        {
+            "beacon-safety" => "Check the North Pier beacon controls",
+            "market-access" => "Inspect the Net Loft Lane parcel area",
+            "pier-circuit" => "Check the East Pier warning circuit",
+            _ => ""
+        };
+
+        public static int PoliceDispatchReward(string code) => code switch
+        {
+            "beacon-safety" => 65,
+            "market-access" => 75,
+            "pier-circuit" => 85,
+            _ => 0
+        };
+
+        private static string PoliceDispatchCodeFor(int callsCompleted)
+            => (Mathf.Max(0, callsCompleted) % 3) switch
+            {
+                0 => "beacon-safety",
+                1 => "market-access",
+                _ => "pier-circuit"
+            };
 
         public bool TryTransferLocalBank(string direction, int amount, out string result)
         {
@@ -783,6 +937,7 @@ namespace Harborlight
             try
             {
                 previousSavePath = File.Exists(SavePath) ? ""
+                    : File.Exists(PreviousSavePathV9) ? PreviousSavePathV9
                     : File.Exists(PreviousSavePathV8) ? PreviousSavePathV8
                     : File.Exists(PreviousSavePathV7) ? PreviousSavePathV7
                     : File.Exists(PreviousSavePathV6) ? PreviousSavePathV6
@@ -811,7 +966,7 @@ namespace Harborlight
                 Debug.LogWarning("Harborlight save could not be read and was ignored: " + exception.Message);
                 return;
             }
-            if (data == null || (!fromLegacy && data.schemaVersion != 2 && data.schemaVersion != 3 && data.schemaVersion != 4 && data.schemaVersion != 5 && data.schemaVersion != 6 && data.schemaVersion != 7 && data.schemaVersion != 8 && data.schemaVersion != SaveSchemaVersion))
+            if (data == null || (!fromLegacy && data.schemaVersion != 2 && data.schemaVersion != 3 && data.schemaVersion != 4 && data.schemaVersion != 5 && data.schemaVersion != 6 && data.schemaVersion != 7 && data.schemaVersion != 8 && data.schemaVersion != 9 && data.schemaVersion != SaveSchemaVersion))
             {
                 Debug.LogWarning("Harborlight save uses an unsupported schema and was ignored.");
                 return;
@@ -828,6 +983,12 @@ namespace Harborlight
             CurrentCourierStage = Enum.IsDefined(typeof(CourierStage), data.courierStage) ? data.courierStage : CourierStage.Available;
             CurrentInspectionStage = Enum.IsDefined(typeof(InspectionStage), data.inspectionStage) ? data.inspectionStage : InspectionStage.Available;
             DeliveriesCompleted = Mathf.Clamp(data.deliveriesCompleted, 0, 999999);
+            PoliceApplied = data.policeApplied;
+            PoliceOnDuty = PoliceApplied && data.policeOnDuty;
+            PoliceCallsCompleted = Mathf.Clamp(data.policeCallsCompleted, 0, 999999);
+            PoliceCreditsEarned = Mathf.Clamp(data.policeCreditsEarned, 0, 999999);
+            var savedDispatchCode = data.policeActiveDispatchCode ?? "";
+            PoliceActiveDispatchCode = PoliceOnDuty && PoliceDispatchReward(savedDispatchCode) > 0 ? savedDispatchCode : "";
             SelectedVehicleIndex = Mathf.Clamp(data.selectedVehicleIndex, 0, VehicleCatalogSize - 1);
             OwnedVehicles = new[] { true, false, false, false, false, false, false, false };
             if (data.ownedVehicles != null)
@@ -893,6 +1054,11 @@ namespace Harborlight
                 courierStage = CurrentCourierStage,
                 inspectionStage = CurrentInspectionStage,
                 deliveriesCompleted = DeliveriesCompleted,
+                policeApplied = PoliceApplied,
+                policeOnDuty = PoliceOnDuty,
+                policeCallsCompleted = PoliceCallsCompleted,
+                policeCreditsEarned = PoliceCreditsEarned,
+                policeActiveDispatchCode = PoliceActiveDispatchCode,
                 selectedVehicleIndex = SelectedVehicleIndex,
                 ownedVehicles = OwnedVehicles,
                 vehiclePaintSkus = _vehiclePaintSkus,

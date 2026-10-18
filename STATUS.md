@@ -2,7 +2,7 @@
 
 **Updated:** 2026-10-18
 
-**Active phase:** M0 and M4 are verified. M5 has one-client Mac loopback evidence for all three authenticated job chains and PostgreSQL rewards; the bank and inventory API suite passes 24/24. The Unity bag UI now passes a short authenticated Mac loopback smoke for catalog load, purchase, equipment, and persistence; Android, physical button input, and retry-after-network-loss remain open. The 24.70 km² map has a coastal north edge and tapered southern peninsula. Its latest road-hierarchy Mac smoke passes 179/179 road probes, 748/748 connector and arterial surface samples, 92/92 sidewalk probes, all 36 entry zones and 900 unique land spawns, plus five of five sampled building contacts. Outer roads are sparser and use two curved cross-district routes, but districts remain sparse and the screenshot is not production-art approval. Full traversal, live later-client spawns, expanded-map multiplayer movement, and Android device testing remain open. A current-source ARM64 development APK now builds and passes package/signature checks.
+**Active phase:** quality-first gameplay completion. The base Harbor Patrol slice and v9-to-v10 local save migration are `IMPLEMENTED_UNVERIFIED`; arrests, citations, reports, and other emergency careers are deferred. No Unity build, gameplay test, or API suite was run in this pass. Map expansion is stopped. Next priorities are resident locomotion/animation, vehicle handling/presentation, authored North Pier content, and runtime UI.
 **Map UI:** The current-source 1280 × 720 Mac capture now uses curved district fills aligned to the peninsula and a lower-contrast local-street layer. The northern street geometry remains grid-based; the map is still prototype cartography, not production art.
 **Overall status:** early playable single-player slice; not a multiplayer production game or release candidate.
 
@@ -59,18 +59,16 @@
 - The 24.70 km² world remains a sparse blockout: open parcels remain, outer shells reuse two facade kits, there are no interiors or traffic, and characters, vehicles, benches, trees, and other props remain prototype art. Mac smokes verified terrain/foundation/building contact at five streamed sites, the save clamp, and a 600 m camera range against the 450/560 m streaming radii; none of these makes the architecture production-realistic or 4K art.
 - The offline mission system, vehicle loop, local save, backend wallet, and admin API remain `IMPLEMENTED_UNVERIFIED` for production acceptance. One brief Mac taxi entry-drive-exit pass succeeded; this does not cover repeated use, collision handling, or mobile controls.
 - The M4 two-client network foundation has loopback evidence for server startup, movement replication, Animator parameter replication, interaction acknowledgment, reconnect, and expanded-map avatar-visibility transitions. M5 verifies short-lived guest tickets and all three job chains for one client against PostgreSQL; same-ID restart restoration still covers beacon only. Long-range traversal, distributed entry spawns, visible animation review, Android transport, durable general character state, and Unity cash/inventory panel runtime remain open.
-- Police, gangs, combat, businesses, property, trading, social play, production store processing, and release operations remain open.
+- The base Harbor Patrol slice and v9-to-v10 save migration are `IMPLEMENTED_UNVERIFIED`; its runtime and API checks are deferred. Arrests/reports, gangs, combat, businesses, property, trading, social play, production store processing, and release operations remain open.
 - NGO package loading does not verify transport behavior, server authority, mobile network behavior, NAT traversal, or any multi-client state synchronization.
 - The Unity graph is stale/incomplete; use source files and update the graph only if it will guide a meaningful later code question.
 
 ## Next actions
 
-1. Traverse the built 24.70 km² map across all ten outer districts, 36 entry zones, and the commons/parks. Extend the current sampled road/sidewalk, save-clamp, five-site grounding, draw-range, and shell-streaming evidence with full routes, collision, unload/reload, and distributed spawns for client IDs above seven. Keep client count small until the world is profiled.
-2. Verify later-client distributed spawn placement and shell load/unload on the expanded map; then measure renderers, memory, replication, and server load before setting a player-capacity target.
-3. Continue M10 art work: replace the repeated central facades and infill open blocks with varied licensed architecture, street props, and readable landmarks; review close-up and route captures before treating the art as done.
-4. Finish M5 runtime verification for the Unity bank panel, physical inventory button/touch input, ambiguous-response retry, reconnect/replay, and two-client mission concurrency before starting the police-career workflow.
-5. Install the current-source ARM64 APK on a physical Android device; no device is attached, so touch, traversal, visual streaming, networking, and performance remain open.
-6. Add playable interiors and a traffic pass; audit PBR response and mobile texture budgets after the architecture infill.
-7. Complete Mac/Android vehicle collision, reverse, repeated entry/exit, and camera-obstruction checks.
-
+1. Finish the resident locomotion system: walk/jog/run, starts/stops, turning, grounded motion, and animation/network consistency.
+2. Improve vehicle handling and presentation: collision-aware Rigidbody control, wheel rotation, braking, reverse, suspension response, and entry/exit.
+3. Finish the existing North Pier district with authored scenes/prefabs, licensed props, sidewalks, road markings, lighting, and building variation; do not expand the map.
+4. Replace the most visible development IMGUI panels with polished runtime Unity UI for touch movement, vehicles, interactions, map/objectives, and careers.
+5. Integrate the implemented Harbor Patrol slice with real world interactions after these quality priorities; leave arrests, citations, and reports deferred.
+6. Keep Unity builds, gameplay tests, and API suites deferred until the user authorizes the test phase. Record the source revision and exact deferred checks.
 See `CHECKPOINT.json` for the machine-readable resume point.

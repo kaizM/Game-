@@ -41,6 +41,8 @@
 
 ### Multiplayer, careers, and economy
 
+- Harbor Patrol gameplay and v9-to-v10 save migration are `IMPLEMENTED_UNVERIFIED`; defer eligibility, local persistence, API idempotency, duplicate callbacks, off-duty cancellation, proximity validation, ledger consistency, and reconnect checks until the authorized test phase. Arrests, citations, and incident reports remain unimplemented.
+
 - The three Unity job chains have one-client loopback persistence evidence. Test restoration after a full chain, two-client mission concurrency, and vehicle-seat synchronization; repeat supported routes on Android devices.
 - Exercise long-route multiplayer movement across the expanded 6,000-by-4,116-meter playable area. Measure route completion, disconnections, replication, and server load; current runtime movement evidence stays in the starter district. Include distributed entry spawns, outer visual load/unload, and collision checks at each client's distance thresholds.
 - Measure 10/50/100 client load only when suitable infrastructure exists. Record server CPU/RAM, bandwidth, observed tick rate, entity counts, replication volume, and latency; never infer larger capacity from a successful two-client test.

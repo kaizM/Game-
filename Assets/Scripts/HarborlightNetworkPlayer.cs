@@ -172,6 +172,20 @@ namespace Harborlight
             RequestWorldInteractionServerRpc((int)action, targetPosition.x, targetPosition.y, targetPosition.z);
         }
 
+        public void RequestPoliceDispatchResolution(string dispatchCode, Vector3 targetPosition)
+        {
+            if (!IsOwner || string.IsNullOrEmpty(dispatchCode) || dispatchCode.Length > 48) return;
+            ResolvePoliceDispatchServerRpc(dispatchCode, targetPosition.x, targetPosition.y, targetPosition.z);
+        }
+
+        public void ApplyPoliceDispatchResult(int credits, string message)
+        {
+            if (NetworkManager.Singleton == null || !NetworkManager.Singleton.IsServer)
+                throw new InvalidOperationException("Only the authoritative game server can update police dispatch progress.");
+            ApplyAuthoritativeMissionSnapshot(_beaconStage.Value, _courierStage.Value, _inspectionStage.Value,
+                credits, _reputation.Value, _deliveriesCompleted.Value, "ResolveDispatch", message);
+        }
+
         private void Update()
         {
             if (!IsSpawned) return;
@@ -274,6 +288,39 @@ namespace Harborlight
             session.SubmitMissionAction(this, action);
         }
 
+        [ServerRpc]
+        private void ResolvePoliceDispatchServerRpc(string dispatchCode, float targetX, float targetY, float targetZ,
+            ServerRpcParams rpcParams = default)
+        {
+            if (rpcParams.Receive.SenderClientId != OwnerClientId || Time.time - _lastInteractionAt < 0.75f ||
+                string.IsNullOrEmpty(dispatchCode) || dispatchCode.Length > 48 ||
+                float.IsNaN(targetX) || float.IsNaN(targetY) || float.IsNaN(targetZ) ||
+                float.IsInfinity(targetX) || float.IsInfinity(targetY) || float.IsInfinity(targetZ))
+                return;
+
+            var requestedTarget = new Vector3(targetX, targetY, targetZ);
+            var valid = false;
+            foreach (var candidate in FindObjectsByType<HarborlightPoliceDispatchSite>())
+            {
+                if (candidate == null || candidate.DispatchCode != dispatchCode ||
+                    Vector3.Distance(transform.position, candidate.transform.position) > 3.2f ||
+                    Vector3.Distance(requestedTarget, candidate.transform.position) > 1.25f)
+                    continue;
+                valid = true;
+                break;
+            }
+            if (!valid) return;
+
+            _lastInteractionAt = Time.time;
+            var session = NetworkManager.Singleton.GetComponent<HarborlightNetworkSession>();
+            if (session == null)
+            {
+                ReportServerActionMessage("The online dispatch service is unavailable.");
+                return;
+            }
+            session.SubmitPoliceDispatchResolution(this, dispatchCode);
+        }
+
         private void OnLocomotionSpeedChanged(float previous, float current)
         {
             if (_player != null) _player.ApplyNetworkLocomotion(current);
@@ -303,6 +350,8 @@ namespace Harborlight
                         _smokeInteractionAckLogged = false;
                     }
                 }
+                if (_lastMissionAction.Value.ToString() == "ResolveDispatch")
+                    _player.RefreshPoliceCareer();
             }
         }
 
