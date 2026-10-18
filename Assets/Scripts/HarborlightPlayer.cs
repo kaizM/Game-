@@ -8,30 +8,31 @@ namespace Harborlight
     public sealed class HarborlightPlayer : MonoBehaviour
     {
         private const float WalkSpeed = 4.5f;
+        private const float JogSpeed = 5.5f;
         private const float SprintSpeed = 7f;
         private const float LocomotionAcceleration = 18f;
         private const float LocomotionDeceleration = 26f;
         private const float TurnSpeedDegrees = 540f;
-        private const float MaximumAnimationRate = SprintSpeed / WalkSpeed;
         private CharacterController _controller;
         private Animator _animator;
         private HarborlightGameState _state;
         private HarborlightVehicle _vehicle;
         private Renderer[] _visuals;
         private float _verticalVelocity;
-        private float _animationPlaybackSpeed = 1f;
         private Vector3 _planarVelocity;
+        private bool _usesCarryWalkFallback;
         private HarborlightCamera _camera;
         private HarborlightGarageService _garage;
         private HarborlightBackendClient _backend;
         private HarborlightNetworkPlayer _networkPlayer;
         private static readonly int LocomotionSpeed = Animator.StringToHash("Speed");
+        private static readonly int LocomotionPlaybackRate = Animator.StringToHash("PlaybackRate");
 
         public bool IsDriving => _vehicle != null;
         public bool IsNetworkSession => _networkPlayer != null && _networkPlayer.IsSpawned;
         public string VehicleName => _vehicle != null ? _vehicle.DisplayName : "";
         public float VehicleSpeed => _vehicle != null ? _vehicle.Speed : 0f;
-        public float NetworkLocomotionSpeed => Mathf.Clamp(_planarVelocity.magnitude / WalkSpeed, 0f, MaximumAnimationRate);
+        public float NetworkLocomotionSpeed => Mathf.Clamp(_planarVelocity.magnitude, 0f, SprintSpeed);
 
         public void Bind(HarborlightGameState state)
         {
@@ -85,6 +86,17 @@ namespace Harborlight
         {
             _controller = GetComponent<CharacterController>();
             _animator = GetComponentInChildren<Animator>(true);
+            if (_animator != null && _animator.runtimeAnimatorController != null)
+            {
+                foreach (var clip in _animator.runtimeAnimatorController.animationClips)
+                {
+                    if (clip != null && clip.name.Contains("Walk_Carry_Loop"))
+                    {
+                        _usesCarryWalkFallback = true;
+                        break;
+                    }
+                }
+            }
             _visuals = GetComponentsInChildren<Renderer>();
             _networkPlayer = GetComponent<HarborlightNetworkPlayer>();
             if (_camera == null) _camera = FindAnyObjectByType<HarborlightCamera>();
@@ -184,11 +196,15 @@ namespace Harborlight
         private void SetLocomotionSpeed(float speed)
         {
             if (_animator == null) return;
-            speed = Mathf.Clamp(speed, 0f, MaximumAnimationRate);
-            _animator.SetFloat(LocomotionSpeed, Mathf.Min(speed, 1f), 0.12f, Time.deltaTime);
-            var targetPlaybackSpeed = speed > 1f ? speed : 1f;
-            _animationPlaybackSpeed = Mathf.MoveTowards(_animationPlaybackSpeed, targetPlaybackSpeed, 2.5f * Time.deltaTime);
-            _animator.speed = _animationPlaybackSpeed;
+            speed = Mathf.Clamp(speed, 0f, SprintSpeed);
+            _animator.SetFloat(LocomotionSpeed, speed, 0.12f, Time.deltaTime);
+            var gaitSpeed = speed < (WalkSpeed + JogSpeed) * 0.5f
+                ? WalkSpeed
+                : speed < (JogSpeed + SprintSpeed) * 0.5f ? JogSpeed : SprintSpeed;
+            var playbackRate = speed < 0.05f ? 1f : _usesCarryWalkFallback
+                ? Mathf.Clamp(speed / WalkSpeed, 1f, SprintSpeed / WalkSpeed)
+                : Mathf.Clamp(speed / gaitSpeed, 0.65f, 1.15f);
+            _animator.SetFloat(LocomotionPlaybackRate, playbackRate, 0.12f, Time.deltaTime);
         }
 
         private void StopOnFootMotion()
@@ -207,7 +223,7 @@ namespace Harborlight
             var hasMoveInput = direction.sqrMagnitude > 0.0001f;
             var rate = hasMoveInput ? LocomotionAcceleration : LocomotionDeceleration;
             _planarVelocity = Vector3.MoveTowards(_planarVelocity, direction * targetSpeed, rate * Time.deltaTime);
-            SetLocomotionSpeed(_planarVelocity.magnitude / WalkSpeed);
+            SetLocomotionSpeed(_planarVelocity.magnitude);
 
             _verticalVelocity = _controller.isGrounded ? -1f : _verticalVelocity - 20f * Time.deltaTime;
             _controller.Move((_planarVelocity + Vector3.up * _verticalVelocity) * Time.deltaTime);
