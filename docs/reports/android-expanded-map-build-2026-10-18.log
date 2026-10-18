@@ -1,0 +1,3 @@
+error: error: error: error: cannot execute tool 'metal' due to missing Metal Toolchain; use: xcodebuild -downloadComponent MetalToolchain
+Build Finished, Result: Success.
+Harborlight Android development build created at /Users/admin/Desktop/RP game/harborlight-city/Builds/Android/Harborlight-Development-ARM64-20261018-Expanded-Map.apk

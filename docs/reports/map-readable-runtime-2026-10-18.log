@@ -1,0 +1,976 @@
+Mono path[0] = '/Users/admin/Desktop/RP game/harborlight-city/Builds/Harborlight-Map-Readable-QA-20261018.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/admin/Desktop/RP game/harborlight-city/Builds/Harborlight-Map-Readable-QA-20261018.app/Contents/MonoBleedingEdge/etc'
+CodeReloadManager initialized
+Found 2 interfaces on host : 0) 10.0.0.94 1) 100.102.112.53
+Player connection [8567843904]  Target information:
+
+Player connection [8567843904]  * "[IP] 10.0.0.94 [Port] 55000 [Flags] 2 [Guid] 3727982451 [EditorId] 808693645 [Version] 1048832 [Id] OSXPlayer(1,Admins-MacBook-Air.local) [Debug] 0 [PackageName] OSXPlayer [ProjectName] Harborlight" 
+
+Player connection [8567843904]  * "[IP] 100.102.112.53 [Port] 55000 [Flags] 2 [Guid] 3727982451 [EditorId] 808693645 [Version] 1048832 [Id] OSXPlayer(1,Admins-MacBook-Air.local) [Debug] 0 [PackageName] OSXPlayer [ProjectName] Harborlight" 
+
+Player connection [8567843904] Started UDP target info broadcast (1) on [225.0.0.222:54997].
+
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+ preferred device: Apple M3 (high power)
+Metal devices available: 1
+0: Apple M3 (high power)
+Using device Apple M3 (high power)
+Initialize engine version: 6000.5.4f1 (d550df8bd089)
+[Subsystems] Discovering subsystems at path /Users/admin/Desktop/RP game/harborlight-city/Builds/Harborlight-Map-Readable-QA-20261018.app/Contents/Resources/Data/UnitySubsystems
+GfxDevice: creating device client; kGfxThreadingModeThreaded
+Initializing Metal device caps: Apple M3
+Mac GPU Family: 2
+Apple GPU Family: 9
+MSL Version: 3.0
+Has Float MSAA: 1
+Has Float Filtering: 1
+ReadWrite Texture Tier: 2
+Begin MonoManager ReloadAssembly
+- Finished resetting the current domain, in  0.040 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Metal RecreateSurface[0x11c721a40]: surface size 1280x720
+UnloadTime: 5.265167 ms
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Northshore playable ground mesh
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.GameObject:Internal_AddComponentWithType (System.Type)
+UnityEngine.GameObject:AddComponent (System.Type) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/GameObject.bindings.cs:264)
+UnityEngine.GameObject:AddComponent<UnityEngine.MeshCollider> () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/GameObject.bindings.cs:269)
+Harborlight.HarborlightBootstrap:CreateCoastalSurface (string,UnityEngine.Material,single,single,int,int,System.Func`2<single, single>,System.Func`2<single, single>,single,bool,System.Func`2<single, single>,bool) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:1139)
+Harborlight.HarborlightBootstrap:BuildCoastAndTerrain () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:852)
+Harborlight.HarborlightBootstrap:BuildDistrict () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:780)
+Harborlight.HarborlightBootstrap:Awake () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:83)
+
+[/Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs line 852]
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 519 loaded=1/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 562 loaded=2/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_QA_EXPANDED_MAP_CAPTURE_REQUESTED
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap/<CaptureExpandedMapAfterRenderedFrame>d__57:MoveNext () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:646)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 520 loaded=3/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 518 loaded=4/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 563 loaded=5/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 561 loaded=6/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 474 loaded=7/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 517 loaded=8/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 475 loaded=9/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 560 loaded=10/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 473 loaded=11/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Fields Residences 604 loaded=12/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 472 loaded=13/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Fields Residences 605 loaded=14/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Fields Residences 603 loaded=15/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Works Building 521 loaded=16/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Works Building 564 loaded=17/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Fields Residences 602 loaded=18/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 428 loaded=19/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Works Building 476 loaded=20/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 429 loaded=21/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 427 loaded=22/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Works Building 522 loaded=23/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Works Building 565 loaded=24/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 516 loaded=25/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Fields Works Building 606 loaded=26/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 559 loaded=27/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 426 loaded=28/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Fields Residences 644 loaded=29/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Works Building 477 loaded=30/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Fields Residences 645 loaded=31/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Fields Residences 643 loaded=32/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Residences 471 loaded=33/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=Southport Fields Works Building 607 loaded=34/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=East Docks Works Building 19 loaded=35/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=West Works Works Building 18 loaded=36/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 426 loaded=35/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 427 loaded=34/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 428 loaded=33/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 429 loaded=32/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 471 loaded=31/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 472 loaded=30/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 473 loaded=29/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 474 loaded=28/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 475 loaded=27/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Works Building 476 loaded=26/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Works Building 477 loaded=25/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 516 loaded=24/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 517 loaded=23/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 518 loaded=22/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 519 loaded=21/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 520 loaded=20/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Works Building 521 loaded=19/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Works Building 522 loaded=18/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 559 loaded=17/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 560 loaded=16/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 561 loaded=15/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 562 loaded=14/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Residences 563 loaded=13/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Works Building 564 loaded=12/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Works Building 565 loaded=11/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Fields Residences 602 loaded=10/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Fields Residences 603 loaded=9/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Fields Residences 604 loaded=8/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Fields Residences 605 loaded=7/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Fields Works Building 606 loaded=6/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Fields Works Building 607 loaded=5/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Fields Residences 643 loaded=4/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Fields Residences 644 loaded=3/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_UNLOAD name=Southport Fields Residences 645 loaded=2/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:UnloadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:982)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:704)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=West Works Works Building 17 loaded=3/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=East Docks Works Building 20 loaded=4/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=East Docks Works Building 59 loaded=5/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=East Docks Works Building 21 loaded=6/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=West Works Works Building 58 loaded=7/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+
+HL_WORLD_STREAM_LOAD name=West Works Works Building 57 loaded=8/924
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:123)
+Harborlight.HarborlightBootstrap:LoadOuterBuilding (Harborlight.HarborlightBootstrap/OuterBuildingStreamSite) (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:972)
+Harborlight.HarborlightBootstrap:Update () (at /Users/admin/Desktop/RP game/harborlight-city/Assets/Scripts/HarborlightBootstrap.cs:694)
+
+(Filename: /Users/bokken/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 123)
+

@@ -2208,8 +2208,8 @@ namespace Harborlight
             var light = lamp.AddComponent<Light>();
             light.type = LightType.Point;
             light.color = new Color(1f, 0.75f, 0.41f);
-            light.range = 14f;
-            light.intensity = 3f;
+            light.range = 10f;
+            light.intensity = 0.85f;
 
             var trigger = new GameObject("Tide beacon controls");
             trigger.transform.position = position + new Vector3(0f, 1f, -2.7f);

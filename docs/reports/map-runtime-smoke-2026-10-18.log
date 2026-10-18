@@ -1,0 +1,15 @@
+HL_MAP_BUILDING_VISIBILITY result=PASS farClip=600 loadRadius=450 unloadRadius=560
+HL_MAP_SAVE_BOUNDS result=PASS actual=0.0,-3026.0 loaded=0.0,-3026.0 message=The tide beacons are dim. Check in with Mara at the pier.
+HL_MAP_ROAD_COLLIDERS result=PASS passed=360/360 misses=
+HL_MAP_SIDEWALK_COLLIDERS result=PASS passed=51/51 misses=
+HL_MAP_BUILDING_GROUND index=0 result=PASS name=West Ridge Residences 43 foundationTop=1.733 buildingBottom=1.733 groundTop=1.728
+HL_MAP_STREAM_WAYPOINT index=0 result=PASS loaded=4 beyondUnload=0
+HL_MAP_BUILDING_GROUND index=5 result=PASS name=East Ridge Residences 73 foundationTop=1.733 buildingBottom=1.733 groundTop=1.728
+HL_MAP_STREAM_WAYPOINT index=5 result=PASS loaded=4 beyondUnload=0
+HL_MAP_BUILDING_GROUND index=6 result=PASS name=Southgate Residences 233 foundationTop=4.225 buildingBottom=4.225 groundTop=4.220
+HL_MAP_STREAM_WAYPOINT index=6 result=PASS loaded=6 beyondUnload=0
+HL_MAP_BUILDING_GROUND index=17 result=PASS name=Southport Works Building 453 foundationTop=4.225 buildingBottom=4.225 groundTop=4.220
+HL_MAP_STREAM_WAYPOINT index=17 result=PASS loaded=4 beyondUnload=0
+HL_MAP_BUILDING_GROUND index=23 result=PASS name=Southport Fields Works Building 643 foundationTop=4.225 buildingBottom=4.225 groundTop=4.220
+HL_MAP_STREAM_WAYPOINT index=23 result=PASS loaded=6 beyondUnload=0
+HL_MAP_LAYOUT_SMOKE result=PASS roads=360/360 sidewalks=51/51 streamWaypoints=5/5 groundedBuildings=5/5

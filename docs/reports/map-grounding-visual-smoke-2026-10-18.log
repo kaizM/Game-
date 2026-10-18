@@ -1,0 +1,16 @@
+HL_MAP_BUILDING_VISIBILITY result=PASS farClip=600 loadRadius=450 unloadRadius=560
+HL_MAP_SAVE_BOUNDS result=PASS actual=0.0,-2.0 loaded=0.0,-2.0 message=The tide beacons are dim. Check in with Mara at the pier.
+HL_MAP_ROAD_COLLIDERS result=PASS passed=598/598 misses=
+HL_MAP_SIDEWALK_COLLIDERS result=PASS passed=84/84 misses=
+HL_MAP_MULTIPLAYER_SPAWNS result=PASS zones=36 slots=900 unique=900 clientRange=8-907
+HL_MAP_BUILDING_GROUND index=0 result=PASS name=West Ridge Residences 53 foundationTop=1.733 buildingBottom=1.733 groundTop=1.728
+HL_MAP_STREAM_WAYPOINT index=0 result=PASS loaded=4 beyondUnload=0
+HL_MAP_BUILDING_GROUND index=5 result=PASS name=East Ridge Residences 93 foundationTop=1.733 buildingBottom=1.733 groundTop=1.728
+HL_MAP_STREAM_WAYPOINT index=5 result=PASS loaded=4 beyondUnload=0
+HL_MAP_BUILDING_GROUND index=30 result=PASS name=Cedar Vale Residences 1061 foundationTop=4.225 buildingBottom=4.225 groundTop=4.220
+HL_MAP_STREAM_WAYPOINT index=30 result=PASS loaded=6 beyondUnload=0
+HL_MAP_BUILDING_GROUND index=35 result=PASS name=Cedar Vale Residences 1101 foundationTop=4.225 buildingBottom=4.225 groundTop=4.220
+HL_MAP_STREAM_WAYPOINT index=35 result=PASS loaded=4 beyondUnload=0
+HL_MAP_BUILDING_GROUND index=21 result=PASS name=Southport Residences 653 foundationTop=4.225 buildingBottom=4.225 groundTop=4.220
+HL_MAP_STREAM_WAYPOINT index=21 result=PASS loaded=6 beyondUnload=0
+HL_MAP_LAYOUT_SMOKE result=PASS roads=598/598 sidewalks=84/84 streamWaypoints=5/5 groundedBuildings=5/5 multiplayerSpawns=900/900

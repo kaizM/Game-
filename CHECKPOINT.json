@@ -1,6 +1,6 @@
 {
   "objective": "Build Harborlight into an original, Android-first open-world multiplayer roleplay game with verified systems and production evidence.",
-  "updatedAt": "2026-10-18T10:44:19-05:00",
+  "updatedAt": "2026-10-18",
   "phase": "M5-inventory-API-24-tests; M10-14.24km2-map-layout-audit-and-current-HUD-review; expanded-map-two-client-visibility-pass; ground-grade-runtime-verified; map-ground-contact-and-save-bounds-runtime-smoke; world-draw-range-aligned-with-streaming; M10-24.70km2-multiplayer-map-expansion-and-runtime-smoke; M12-current-source-Android-ARM64-development-build-and-package-verification; M10-procedural-coastal-sky-and-expanded-map-ground-contact-QA; M10-three-Quaternius-CC0-outer-building-forms-grounded-and-runtime-smoke-verified; M10-tapered-peninsula-coastline-and-clipped-roads-runtime-smoke-verified; M10-outer-road-hierarchy-curved-connectors-and-map-layout-smoke-verified; M5-Unity-inventory-UI-authenticated-loopback-smoke-passed; M10-curved-district-cartography-and-road-hierarchy-mac-QA-verified; M12-current-source-Android-ARM64-development-APK-package-and-signature-verified",
   "overallStatus": "IN_PROGRESS",
   "projectRoot": "/Users/admin/Desktop/RP game/harborlight-city",
@@ -148,11 +148,11 @@
     },
     {
       "path": "Builds/Harborlight-M5-Authenticated-QA.app",
-      "result": "Final Unity 6000.5.4f1 Mac QA build after expanding the playable map to 1,032 × 592 m. Build succeeded; the one-client/one-server authenticated loopback smoke passed against this binary."
+      "result": "Final Unity 6000.5.4f1 Mac QA build after expanding the playable map to 1,032 \u00d7 592 m. Build succeeded; the one-client/one-server authenticated loopback smoke passed against this binary."
     },
     {
       "path": "docs/reports/expanded-multiplayer-world-2026-10-18.md",
-      "result": "Records the earlier 7.91 km² source update, subsequent two-client avatar visibility results, and the 14.24 km² intermediate map; that layout was later superseded by the 24.70 km² map in large-multiplayer-map-expansion-2026-10-18.md."
+      "result": "Records the earlier 7.91 km\u00b2 source update, subsequent two-client avatar visibility results, and the 14.24 km\u00b2 intermediate map; that layout was later superseded by the 24.70 km\u00b2 map in large-multiplayer-map-expansion-2026-10-18.md."
     },
     {
       "path": "docs/reports/screenshots/Harborlight-Expanded-Multiplayer-Map-Game-Only.png",
@@ -196,11 +196,11 @@
     },
     {
       "path": "Builds/Harborlight-M9-Multiplayer-Map-QA.app",
-      "result": "M9 Unity 6000.5.4f1 Mac build compiled the 3,600 × 2,196 m (7.91 km²) map, six districts, 105 outer building sites, and eight entry areas. The M9 app itself was not launched. A later M10 build booted the current world in one server/client loopback smoke, but only the starter district was traversed; map UI, outer routes, and distributed spawns remain unverified."
+      "result": "M9 Unity 6000.5.4f1 Mac build compiled the 3,600 \u00d7 2,196 m (7.91 km\u00b2) map, six districts, 105 outer building sites, and eight entry areas. The M9 app itself was not launched. A later M10 build booted the current world in one server/client loopback smoke, but only the starter district was traversed; map UI, outer routes, and distributed spawns remain unverified."
     },
     {
       "path": "docs/reports/large-multiplayer-map-2026-10-17.md",
-      "result": "Records the 7.91 km² map, 14-by-14 outer road grid, 105 sites, eight distributed entry areas, M9 compile, M10 server/client world bootstrap, and a current M10 map UI screenshot showing 3.60 × 2.20 km and six districts. Outer traversal and actual distributed spawns remain unverified."
+      "result": "Records the 7.91 km\u00b2 map, 14-by-14 outer road grid, 105 sites, eight distributed entry areas, M9 compile, M10 server/client world bootstrap, and a current M10 map UI screenshot showing 3.60 \u00d7 2.20 km and six districts. Outer traversal and actual distributed spawns remain unverified."
     },
     {
       "path": "Builds/Harborlight-M10-All-Jobs-QA-Fix.app",
@@ -216,11 +216,11 @@
     },
     {
       "path": "docs/reports/screenshots/Harborlight-M10-Multiplayer-Map-Game-Only.png",
-      "result": "Historic M10 Unity game-only 1280 × 720 screenshot of the earlier 3.60 × 2.20 km map with six districts, the road grid, and eight entry markers. The current 390-site/16-zone source update is not shown and has not been built."
+      "result": "Historic M10 Unity game-only 1280 \u00d7 720 screenshot of the earlier 3.60 \u00d7 2.20 km map with six districts, the road grid, and eight entry markers. The current 390-site/16-zone source update is not shown and has not been built."
     },
     {
       "path": "Assets/Scripts/HarborlightDistrictSurfaceNetwork.cs",
-      "result": "Current source defines 4,600 × 3,096 m (14.24 km²), an 18-by-20 outer road grid, 722 building sites, and 24 off-road entry pads. A source-derived coordinate audit passed 600 distinct spawn slots; the expanded map has not been built or run."
+      "result": "Current source defines 4,600 \u00d7 3,096 m (14.24 km\u00b2), an 18-by-20 outer road grid, 722 building sites, and 24 off-road entry pads. A source-derived coordinate audit passed 600 distinct spawn slots; the expanded map has not been built or run."
     },
     {
       "path": "docs/reports/m5-bank-integration-2026-10-18.md",
@@ -232,7 +232,7 @@
     },
     {
       "path": "Builds/Harborlight-Multiplayer-Interest-QA-20261018.app",
-      "result": "Earlier Unity 6000.5.4f1 macOS QA build compiled server-side avatar interest management for the 7.91 km² map. A later dedicated build passed two-client loopback visibility transitions; see player-interest-management-smoke-2026-10-18.md. No capacity or expanded-map claim is made."
+      "result": "Earlier Unity 6000.5.4f1 macOS QA build compiled server-side avatar interest management for the 7.91 km\u00b2 map. A later dedicated build passed two-client loopback visibility transitions; see player-interest-management-smoke-2026-10-18.md. No capacity or expanded-map claim is made."
     },
     {
       "path": "/tmp/Harborlight-Multiplayer-Interest-QA-20261018.log",
@@ -240,7 +240,7 @@
     },
     {
       "path": "Builds/Harborlight-Interest-Transitions-Logged-QA-20261018.app",
-      "result": "Unity 6000.5.4f1 Mac build succeeded before the 14.24 km² source expansion. Two authenticated loopback clients passed initial 700 m, hidden 900 m, and re-shown 700 m visibility assertions. This is not a capacity test."
+      "result": "Unity 6000.5.4f1 Mac build succeeded before the 14.24 km\u00b2 source expansion. Two authenticated loopback clients passed initial 700 m, hidden 900 m, and re-shown 700 m visibility assertions. This is not a capacity test."
     },
     {
       "path": "docs/reports/player-interest-management-smoke-2026-10-18.md",
@@ -252,15 +252,15 @@
     },
     {
       "path": "Builds/Harborlight-Terrain-Grade-QA-20261018.app",
-      "result": "Unity 6000.5.4f1 build of the intermediate 14.24 km² map succeeded. An isolated low-priority player launched without runtime exceptions and streamed two nearby outer-building visuals. This does not verify full-map traversal, multiplayer, collisions, Android, or production art."
+      "result": "Unity 6000.5.4f1 build of the intermediate 14.24 km\u00b2 map succeeded. An isolated low-priority player launched without runtime exceptions and streamed two nearby outer-building visuals. This does not verify full-map traversal, multiplayer, collisions, Android, or production art."
     },
     {
       "path": "docs/reports/screenshots/Harborlight-Terrain-Grade-QA-Game-Only.png",
-      "result": "1280×720 Unity game-frame capture with no desktop or window chrome. Shows the starter district after the terrain-grade correction; confirms only this view, not full-world ground contact or production-quality art."
+      "result": "1280\u00d7720 Unity game-frame capture with no desktop or window chrome. Shows the starter district after the terrain-grade correction; confirms only this view, not full-world ground contact or production-quality art."
     },
     {
       "path": "docs/reports/expanded-map-multiplayer-smoke-2026-10-18.md",
-      "result": "On the intermediate 14.24 km² Unity 6000.5.4f1 build, an authenticated local server and two clients passed six avatar-visibility assertions across 700→900→700 m. This is prior-map evidence; the 24.70 km² expansion has layout-smoke evidence only. Full traversal, later-client live spawns, capacity, remote transport, and Android remain unverified."
+      "result": "On the intermediate 14.24 km\u00b2 Unity 6000.5.4f1 build, an authenticated local server and two clients passed six avatar-visibility assertions across 700\u2192900\u2192700 m. This is prior-map evidence; the 24.70 km\u00b2 expansion has layout-smoke evidence only. Full traversal, later-client live spawns, capacity, remote transport, and Android remain unverified."
     },
     {
       "path": "/tmp/Harborlight-Expanded-Map-Multiplayer-20261018015321_78606-skgiwner/server.log",
@@ -276,7 +276,7 @@
     },
     {
       "path": "Builds/Harborlight-Map-Review-QA-20261018.app",
-      "result": "Unity 6000.5.4f1 Mac development build succeeded at 2026-10-18 02:02. A short isolated-profile runtime pass rendered the intermediate 14.24 km² expanded map at 30 FPS."
+      "result": "Unity 6000.5.4f1 Mac development build succeeded at 2026-10-18 02:02. A short isolated-profile runtime pass rendered the intermediate 14.24 km\u00b2 expanded map at 30 FPS."
     },
     {
       "path": "/tmp/Harborlight-Map-Review-QA-20261018.log",
@@ -308,11 +308,11 @@
     },
     {
       "path": "Builds/Harborlight-Multiplayer-Expanded-QA-20261018.app",
-      "result": "Unity 6000.5.4f1 Mac development build succeeded for the 24.70 km² map; see docs/reports/large-multiplayer-map-expansion-2026-10-18.md."
+      "result": "Unity 6000.5.4f1 Mac development build succeeded for the 24.70 km\u00b2 map; see docs/reports/large-multiplayer-map-expansion-2026-10-18.md."
     },
     {
       "path": "docs/reports/large-multiplayer-map-expansion-2026-10-18.md",
-      "result": "Records the 24.70 km² expansion, build, runtime smoke results, screenshot, and multiplayer evidence limits."
+      "result": "Records the 24.70 km\u00b2 expansion, build, runtime smoke results, screenshot, and multiplayer evidence limits."
     },
     {
       "path": "docs/reports/large-multiplayer-map-smoke-2026-10-18.log",
@@ -320,7 +320,7 @@
     },
     {
       "path": "docs/reports/screenshots/Harborlight-Large-Multiplayer-Map-Game-Only-2026-10-18.png",
-      "result": "1280x720 game-only capture of the 6.00 × 4.12 km full map with ten district labels and 36 multiplayer entry zones."
+      "result": "1280x720 game-only capture of the 6.00 \u00d7 4.12 km full map with ten district labels and 36 multiplayer entry zones."
     },
     {
       "path": "docs/reports/large-multiplayer-map-build-2026-10-18.log",
@@ -340,7 +340,7 @@
     },
     {
       "path": "Builds/Harborlight-Visual-Grounding-QA-20261018.app",
-      "result": "Unity 6000.5.4f1 Mac development player built successfully from the current 24.70 km² source; procedural coastal sky and lower distance fog."
+      "result": "Unity 6000.5.4f1 Mac development player built successfully from the current 24.70 km\u00b2 source; procedural coastal sky and lower distance fog."
     },
     {
       "path": "docs/reports/map-grounding-visual-review-2026-10-18.md",
@@ -392,11 +392,11 @@
     },
     {
       "path": "Builds/Harborlight-Map-Connector-QA-20261018.app",
-      "result": "Unity 6000.5.4f1 isolated macOS development build for the current 24.70 km² road-hierarchy map; build log ends with Build Finished, Result: Success. Short 30 FPS smoke only; not Android or traversal evidence."
+      "result": "Unity 6000.5.4f1 isolated macOS development build for the current 24.70 km\u00b2 road-hierarchy map; build log ends with Build Finished, Result: Success. Short 30 FPS smoke only; not Android or traversal evidence."
     },
     {
       "path": "docs/reports/screenshots/Harborlight-NonGrid-CityMap-2026-10-18.png",
-      "result": "1280×720 game-only full-map screen showing the tapered peninsula, north inlets, named districts, reduced outer-road hierarchy, Bayline Parkway, Southgate Connector, Cedar Vale Scenic Route, multiplayer entries, and current starter-hub service key."
+      "result": "1280\u00d7720 game-only full-map screen showing the tapered peninsula, north inlets, named districts, reduced outer-road hierarchy, Bayline Parkway, Southgate Connector, Cedar Vale Scenic Route, multiplayer entries, and current starter-hub service key."
     },
     {
       "path": "docs/reports/harborlight-map-connectors-build-2026-10-18.log",
@@ -424,7 +424,7 @@
     },
     {
       "path": "docs/reports/screenshots/Harborlight-Inventory-UI-Authenticated-2026-10-18.png",
-      "result": "1280×720 game-only screenshot of the live Harbor Supply panel after an authenticated purchase/equip flow: 90 cash credits, 0.3/10 kg, Dockhand Gloves owned and equipped; feedback reads “Inventory updated.”"
+      "result": "1280\u00d7720 game-only screenshot of the live Harbor Supply panel after an authenticated purchase/equip flow: 90 cash credits, 0.3/10 kg, Dockhand Gloves owned and equipped; feedback reads \u201cInventory updated.\u201d"
     },
     {
       "path": "Assets/Scripts/HarborlightHud.cs",
@@ -457,6 +457,22 @@
     {
       "path": "docs/reports/android-current-source-build-2026-10-18.log",
       "result": "Current-source Android build log ends with Build Finished, Result: Success; no C# compiler warnings remain after removing unused map locals."
+    },
+    {
+      "path": "docs/reports/visual-recovery-2026-10-18.md",
+      "result": "Tide Beacon lighting reduced after controlled same-save before/after capture; player halo visibly eliminated, while sparse props and development HUD remain."
+    },
+    {
+      "path": "docs/reports/harborlight-visual-recovery-build-2026-10-18.log",
+      "result": "Unity 6000.5.4f1 Mac QA player build completed with Build Finished, Result: Success."
+    },
+    {
+      "path": "docs/reports/screenshots/Harborlight-Visual-Baseline-2026-10-18.png",
+      "result": "1280x720 controlled disposable-profile baseline showing severe Tide Beacon overexposure on player."
+    },
+    {
+      "path": "docs/reports/screenshots/Harborlight-Visual-Recovery-2026-10-18.png",
+      "result": "1280x720 capture from same disposable profile after reducing beacon range/intensity; no blown-out player halo."
     }
   ],
   "referenceAttempt": "REA identifies the installed OneState executable as arm64 Mach-O and the current REA session reports Ghidra 12.1.4 available. An earlier OneState runtime launch produced no accessible window and reached approximately 329% CPU; it remains closed to protect Mac thermals. The installed app is a compiled build, not its Unity project source; no code or assets were transferred.",
@@ -464,7 +480,7 @@
     "Install the current-source ARM64 APK on a physical Android device and verify launch; no device is attached.",
     "The outer road hierarchy has been reduced and two curved connectors are in place; next traverse the north, shore, and southern routes, validate road junction collision, and add original functional destinations before approving M10 map art.",
     "Continue M10 visual work: diversify the central architecture, fill open city blocks with licensed structures and props, and review close-up/game-route captures before approving the art.",
-    "Traverse representative routes across the 24.70 km² map, cover all ten named outer districts and 36 entry zones, and exercise selected later-client IDs in a live session; verify collision, unload/reload, Android behavior, and load before setting a player-count target.",
+    "Traverse representative routes across the 24.70 km\u00b2 map, cover all ten named outer districts and 36 entry zones, and exercise selected later-client IDs in a live session; verify collision, unload/reload, Android behavior, and load before setting a player-count target.",
     "Finish M5 player QA for the Unity bank panel, physical inventory button/touch input, network-loss idempotent retry, reconnect/replay, and two-client mission concurrency.",
     "Test two-client mission concurrency and complete-chain reconnect/replay; then continue the M5 acceptance gate.",
     "Start the M6 police-career workflow with server-authoritative recruitment, duty, dispatch, and auditable report actions after M5 is closed.",
@@ -474,14 +490,14 @@
   "openRisks": [
     "The shaped coastline and clipped roads were validated with a bounded Mac smoke, not a full edge traversal. The full-screen map now uses curved district fills and muted local streets, but the actual road layout remains grid-based in the northern core and several districts; the current-source Android APK is now rebuilt and debug-signed, but no physical Android device is attached to verify installation, rendering, or performance.",
     "All three job chains pass a one-client Unity-to-API-to-PostgreSQL loopback run. Full-set reconnect, multi-client races, Unity bank/inventory runtime flows, secure remote transport, Android networking, and sustained load remain open.",
-    "The 14.24 km² map builds and renders; an authenticated two-client loopback passed visibility transitions at 700→900→700 m. Full-map traversal, distributed spawns, shell unload/reload, remote transport, and device/server load remain unverified before setting a capacity target.",
+    "The 14.24 km\u00b2 map builds and renders; an authenticated two-client loopback passed visibility transitions at 700\u2192900\u2192700 m. Full-map traversal, distributed spawns, shell unload/reload, remote transport, and device/server load remain unverified before setting a capacity target.",
     "No Android/iOS device-backed gameplay or sustained performance evidence. The saved ARM64 APK predates current streaming/map source and is debug-signed; rebuild and test on a physical device.",
     "The expanded city remains prototype art with open parcels, two repeated facade kits, exterior-only landmarks, and prototype characters/trees/props.",
     "The Unity and Harborlight service roots have separate Git histories; the shared admin SDK root has no Git metadata yet.",
     "The host has limited free disk and previous work noted heat constraints. Keep future Unity tasks selective and low priority; the M10 smoke was capped at 30 FPS and reported no macOS thermal/performance warning.",
     "The current expanded-map HUD has now been visually reviewed at 4.60 x 3.10 km with all 24 entry zones. Full-map traversal, runtime spawns for client IDs above seven, shell unload/reload, remote transport, Android behavior, and load remain unverified.",
-    "The first avatar-interest smoke attempt used Unity’s standard profile. The saved position was restored from the untouched v6 save and the test token removed, but the pre-test session-token state was not recorded and cannot be recovered if one existed.",
-    "The outer-city screenshot is a first-frame capture before streamed façades load; the 24.70 km² map remains sparse and uses two repeated kits, so production architecture and full visual traversal are not verified.",
+    "The first avatar-interest smoke attempt used Unity\u2019s standard profile. The saved position was restored from the untouched v6 save and the test token removed, but the pre-test session-token state was not recorded and cannot be recovered if one existed.",
+    "The outer-city screenshot is a first-frame capture before streamed fa\u00e7ades load; the 24.70 km\u00b2 map remains sparse and uses two repeated kits, so production architecture and full visual traversal are not verified.",
     "The current road-hierarchy Mac smoke passes its bounded map probes but is not full route traversal or device evidence. The Player.log also reports a Northshore playable ground mesh triangle over 500 units; investigate actual cooked collider geometry and query behavior before relying on that terrain collider for vehicle physics.",
     "The inventory Mac QA smoke invoked HarborlightBackendClient methods directly while rendering the live bag; actual button/touch activation and ambiguous network-result retry remain unverified. Android and production commerce are not ready."
   ]
