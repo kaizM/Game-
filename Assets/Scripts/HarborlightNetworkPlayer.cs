@@ -213,7 +213,7 @@ namespace Harborlight
 
             var directionToApply = Time.time - _lastInputAt > InputTimeout ? Vector3.zero : _serverDirection;
             _player.ApplyAuthoritativeMovement(directionToApply, _serverSprint);
-            var speed = directionToApply.magnitude;
+            var speed = _player.NetworkLocomotionSpeed;
             if (Mathf.Abs(_locomotionSpeed.Value - speed) > 0.05f)
                 _locomotionSpeed.Value = speed;
             if (HarborlightNetworkSession.AutomatedSmokeTest && !_movementEvidenceLogged &&

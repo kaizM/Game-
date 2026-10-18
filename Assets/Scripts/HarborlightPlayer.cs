@@ -7,12 +7,20 @@ namespace Harborlight
     [RequireComponent(typeof(CharacterController))]
     public sealed class HarborlightPlayer : MonoBehaviour
     {
+        private const float WalkSpeed = 4.5f;
+        private const float SprintSpeed = 7f;
+        private const float LocomotionAcceleration = 18f;
+        private const float LocomotionDeceleration = 26f;
+        private const float TurnSpeedDegrees = 540f;
+        private const float MaximumAnimationRate = SprintSpeed / WalkSpeed;
         private CharacterController _controller;
         private Animator _animator;
         private HarborlightGameState _state;
         private HarborlightVehicle _vehicle;
         private Renderer[] _visuals;
         private float _verticalVelocity;
+        private float _animationPlaybackSpeed = 1f;
+        private Vector3 _planarVelocity;
         private HarborlightCamera _camera;
         private HarborlightGarageService _garage;
         private HarborlightBackendClient _backend;
@@ -23,6 +31,7 @@ namespace Harborlight
         public bool IsNetworkSession => _networkPlayer != null && _networkPlayer.IsSpawned;
         public string VehicleName => _vehicle != null ? _vehicle.DisplayName : "";
         public float VehicleSpeed => _vehicle != null ? _vehicle.Speed : 0f;
+        public float NetworkLocomotionSpeed => Mathf.Clamp(_planarVelocity.magnitude / WalkSpeed, 0f, MaximumAnimationRate);
 
         public void Bind(HarborlightGameState state)
         {
@@ -112,34 +121,34 @@ namespace Harborlight
 
             if (_state != null && _state.TutorialOpen)
             {
-                SetLocomotionSpeed(0f);
+                StopOnFootMotion();
                 return;
             }
 
             if (_state != null && _state.GarageOpen)
             {
-                SetLocomotionSpeed(0f);
+                StopOnFootMotion();
                 if (Input.GetKeyDown(KeyCode.Escape)) _state.CloseGarage();
                 return;
             }
 
             if (_state != null && _state.BankOpen)
             {
-                SetLocomotionSpeed(0f);
+                StopOnFootMotion();
                 if (Input.GetKeyDown(KeyCode.Escape)) _state.CloseBank();
                 return;
             }
 
             if (_state != null && _state.InventoryOpen)
             {
-                SetLocomotionSpeed(0f);
+                StopOnFootMotion();
                 if (Input.GetKeyDown(KeyCode.Escape)) _state.CloseInventory();
                 return;
             }
 
             if (_state != null && _state.PoliceCareerOpen)
             {
-                SetLocomotionSpeed(0f);
+                StopOnFootMotion();
                 if (Input.GetKeyDown(KeyCode.Escape)) _state.ClosePoliceCareer();
                 return;
             }
@@ -151,29 +160,64 @@ namespace Harborlight
             var vertical = input.y;
             if (_vehicle != null)
             {
-                SetLocomotionSpeed(0f);
+                StopOnFootMotion();
                 var throttle = Mathf.Clamp(vertical + HarborlightTouchControls.Throttle, -1f, 1f);
                 _vehicle.SetDriveInput(GameAdminOverlay.IsVisible ? 0f : throttle, GameAdminOverlay.IsVisible ? 0f : horizontal);
                 if (!GameAdminOverlay.IsVisible && (Input.GetKeyDown(KeyCode.E) || HarborlightTouchControls.ConsumeExit())) ExitVehicle();
                 return;
             }
-            if (GameAdminOverlay.IsVisible) return;
+            if (GameAdminOverlay.IsVisible)
+            {
+                StopOnFootMotion();
+                return;
+            }
 
             var forward = _camera != null ? _camera.PlanarForward : Vector3.forward;
             var right = _camera != null ? _camera.PlanarRight : Vector3.right;
             var direction = right * horizontal + forward * vertical;
             if (direction.sqrMagnitude > 1f) direction.Normalize();
-            SetLocomotionSpeed(direction.magnitude);
+            MoveOnFoot(direction, Input.GetKey(KeyCode.LeftShift));
 
-            var speed = Input.GetKey(KeyCode.LeftShift) ? 7f : 4.5f;
+            if (Input.GetKeyDown(KeyCode.E) || HarborlightTouchControls.ConsumeInteract()) InteractNearby();
+        }
+
+        private void SetLocomotionSpeed(float speed)
+        {
+            if (_animator == null) return;
+            speed = Mathf.Clamp(speed, 0f, MaximumAnimationRate);
+            _animator.SetFloat(LocomotionSpeed, Mathf.Min(speed, 1f), 0.12f, Time.deltaTime);
+            var targetPlaybackSpeed = speed > 1f ? speed : 1f;
+            _animationPlaybackSpeed = Mathf.MoveTowards(_animationPlaybackSpeed, targetPlaybackSpeed, 2.5f * Time.deltaTime);
+            _animator.speed = _animationPlaybackSpeed;
+        }
+
+        private void StopOnFootMotion()
+        {
+            _planarVelocity = Vector3.zero;
+            SetLocomotionSpeed(0f);
+        }
+
+        private void MoveOnFoot(Vector3 direction, bool sprint)
+        {
+            if (_controller == null || !_controller.enabled) return;
+
+            direction.y = 0f;
+            direction = Vector3.ClampMagnitude(direction, 1f);
+            var targetSpeed = sprint ? SprintSpeed : WalkSpeed;
+            var hasMoveInput = direction.sqrMagnitude > 0.0001f;
+            var rate = hasMoveInput ? LocomotionAcceleration : LocomotionDeceleration;
+            _planarVelocity = Vector3.MoveTowards(_planarVelocity, direction * targetSpeed, rate * Time.deltaTime);
+            SetLocomotionSpeed(_planarVelocity.magnitude / WalkSpeed);
+
             _verticalVelocity = _controller.isGrounded ? -1f : _verticalVelocity - 20f * Time.deltaTime;
-            _controller.Move((direction * speed + Vector3.up * _verticalVelocity) * Time.deltaTime);
+            _controller.Move((_planarVelocity + Vector3.up * _verticalVelocity) * Time.deltaTime);
 
             var position = transform.position;
             if (position.y < -4f)
             {
                 position = new Vector3(0f, 0f, -2f);
                 _verticalVelocity = 0f;
+                _planarVelocity = Vector3.zero;
             }
             var safePosition = HarborlightDistrictSurfaceNetwork.ClampToPlayableLand(
                 new Vector2(position.x, position.z));
@@ -181,17 +225,12 @@ namespace Harborlight
             position.z = safePosition.y;
             transform.position = position;
 
-            if (direction.sqrMagnitude > 0.01f)
+            if (hasMoveInput)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 12f * Time.deltaTime);
+                var targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation,
+                    TurnSpeedDegrees * Time.deltaTime);
             }
-
-            if (Input.GetKeyDown(KeyCode.E) || HarborlightTouchControls.ConsumeInteract()) InteractNearby();
-        }
-
-        private void SetLocomotionSpeed(float speed)
-        {
-            if (_animator != null) _animator.SetFloat(LocomotionSpeed, speed, 0.12f, Time.deltaTime);
         }
 
         public Vector3 ReadNetworkMoveDirection()
@@ -215,27 +254,7 @@ namespace Harborlight
         public void ApplyAuthoritativeMovement(Vector3 direction, bool sprint)
         {
             if (_controller == null || !_controller.enabled) return;
-
-            direction.y = 0f;
-            direction = Vector3.ClampMagnitude(direction, 1f);
-            SetLocomotionSpeed(direction.magnitude);
-            _verticalVelocity = _controller.isGrounded ? -1f : _verticalVelocity - 20f * Time.deltaTime;
-            _controller.Move((direction * (sprint ? 7f : 4.5f) + Vector3.up * _verticalVelocity) * Time.deltaTime);
-
-            var position = transform.position;
-            if (position.y < -4f)
-            {
-                position = new Vector3(0f, 0f, -2f);
-                _verticalVelocity = 0f;
-            }
-            var safePosition = HarborlightDistrictSurfaceNetwork.ClampToPlayableLand(
-                new Vector2(position.x, position.z));
-            position.x = safePosition.x;
-            position.z = safePosition.y;
-            transform.position = position;
-
-            if (direction.sqrMagnitude > 0.01f)
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 12f * Time.deltaTime);
+            MoveOnFoot(direction, sprint);
         }
 
         public void ApplyNetworkLocomotion(float speed)
@@ -323,6 +342,7 @@ namespace Harborlight
 
         private void EnterVehicle(HarborlightVehicle vehicle)
         {
+            _planarVelocity = Vector3.zero;
             _vehicle = vehicle;
             _vehicle.SetOccupied(true);
             _controller.enabled = false;
@@ -340,6 +360,7 @@ namespace Harborlight
             transform.SetPositionAndRotation(exitPosition, vehicle.transform.rotation);
             _controller.enabled = true;
             _verticalVelocity = 0f;
+            _planarVelocity = Vector3.zero;
             foreach (var visual in _visuals) visual.enabled = true;
             _vehicle = null;
             vehicle.SetOccupied(false);
