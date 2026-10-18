@@ -477,7 +477,7 @@
   ],
   "referenceAttempt": "REA identifies the installed OneState executable as arm64 Mach-O and the current REA session reports Ghidra 12.1.4 available. An earlier OneState runtime launch produced no accessible window and reached approximately 329% CPU; it remains closed to protect Mac thermals. The installed app is a compiled build, not its Unity project source; no code or assets were transferred.",
   "nextActions": [
-    "Priority 1: add properly licensed standard walk, jog, and run clips for the resident; integrate them into the Animator and review proportions, turning, stopping, foot contact, and network playback when builds are authorized.",
+    "Priority 1: after Unity asset import is authorized, run Harborlight > Build Resident Character Assets and inspect proportions, Humanoid retargeting, walk/jog/sprint blend thresholds, foot contact, stopping, and remote playback.",
     "Priority 2: improve vehicle handling and presentation with collision-aware Rigidbody control, wheel rotation, braking, reverse, suspension response, and clear entry/exit.",
     "Priority 3: finish the existing North Pier district with authored scenes/prefabs, licensed props, sidewalks, road markings, lighting, and building variation; do not expand the map.",
     "Priority 4: replace the most visible development IMGUI panels with polished runtime Unity UI for touch movement, vehicles, interactions, map/objectives, and careers.",
@@ -504,14 +504,21 @@
   "latestImplementation": {
     "phase": "QUALITY_CHARACTER_MOTION",
     "status": "IMPLEMENTED_UNVERIFIED",
-    "systems": "Added shared local/server character movement with gradual acceleration and deceleration, a bounded turn rate, and Animator playback rate driven by server-measured movement speed. Reset locomotion state on UI lock and vehicle entry/exit.",
-    "expectedVisualDifference": "Starts and stops ease in/out, sharp direction changes rotate at a bounded rate, and sprint motion advances the existing walk cycle faster.",
+    "systems": "Added licensed CC0 idle, walk, jog, and sprint FBX source; updated editor setup to generate a Humanoid speed blend tree; mapped physical movement speed and Animator playback rate locally and over the existing network value.",
+    "expectedVisualDifference": "After the resident asset setup runs, speed should blend from idle through walk, jog, and sprint clips. Before that editor step, the current prefab still uses its prior carry-walk clip.",
     "updatedScenesOrPrefabs": [],
-    "screenshotEvidence": "None for this source-only pass; rendering/build execution is deferred by the testing restriction.",
-    "verification": "Source inspection and git diff --check only. No Unity compilation, build, gameplay test, or API test suite was run.",
-    "knownLimitations": "The only available licensed locomotion clips are idle and carry-walk. Sprint therefore re-times carry-walk; a standard walk/jog/run set and rendered animation review are still needed. No mobile sprint control was added.",
-    "knownRegressions": "None established without runtime testing. Acceleration, stopping distance, network replication cadence, and collisions need validation in the authorized test phase.",
-    "gitCommitSha": "5865bf28d76e777d73de3d2665941b27d976b38c",
-    "remaining": "Add a proper licensed locomotion set, then improve vehicle handling/presentation, finish authored North Pier content, and replace the most visible development UI. Preserve police work as IMPLEMENTED_UNVERIFIED."
-  }
+    "screenshotEvidence": "None. Unity import, prefab regeneration, build, and rendering were not run.",
+    "verification": "Static checks only: preserved archive FBX byte-matches the imported FBX; CC0 license and expected clip names are present; git diff --check passed. No Unity compilation, build, gameplay test, or API suite was run.",
+    "knownLimitations": "The editor menu Harborlight > Build Resident Character Assets must import the new clips and regenerate the resident prefab/controller. Humanoid retargeting, blend timing, foot contact, and network visuals remain unverified. No mobile sprint control was added.",
+    "knownRegressions": "None established without Unity runtime validation. Movement stopping distance, camera/vehicle transitions, collision, replication cadence, and mobile input remain deferred checks.",
+    "gitCommitSha": "cff2b34b96ed218453c71d8ce724c1cbbd213021",
+    "remaining": "When the testing restriction is lifted, run the resident asset setup and review walk/jog/sprint in-game. Continue with vehicle collision-aware handling and wheel/suspension presentation, then North Pier art and runtime UI. Preserve Harbor Patrol as IMPLEMENTED_UNVERIFIED.",
+    "publishedCommitSha": "cff2b34b96ed218453c71d8ce724c1cbbd213021"
+  },
+  "deferredChecks": [
+    "Unity import and Harborlight > Build Resident Character Assets prefab/controller regeneration.",
+    "Unity compilation/build and rendered walk, jog, sprint, start/stop, turn, foot-contact, and character-proportion review.",
+    "Networked animation parameter behavior, vehicle enter/exit transitions, mobile touch/sprint controls, and sustained Android performance.",
+    "Police career gameplay and v9-to-v10 save migration; no build, gameplay test, or API test suite until user authorization."
+  ]
 }

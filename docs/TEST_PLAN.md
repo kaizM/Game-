@@ -2,7 +2,7 @@
 
 ## Current coverage
 
-- Source-only locomotion follow-up: local and authoritative movement now ease into and out of motion; network Animator rate follows server-measured planar speed. This change has not been compiled or rendered. Defer checks for walk/sprint start-stop distance, turn response, wall collision, remote animation, UI lock, vehicle transitions, and Android touch until the authorized test phase. Current CC0 animation source lacks a standard run cycle.
+- Source-only locomotion follow-up: local and authoritative movement ease into and out of motion; licensed CC0 UAL1 idle/walk/jog/sprint clips and the editor blend-tree setup are committed. No Unity import, prefab regeneration, compilation, build, or render was run. Defer asset import, gait transitions, foot contact, turn/start-stop response, wall collision, remote animation, UI lock, vehicle transitions, and Android touch until the authorized Unity stage.
 
 - The Unity source has no dedicated `Assets/Tests` directory or visible Unity test assembly in the current tree.
 - `harborlight-services/tests` contains an ASP.NET Core test project; the latest service/database run and evidence limits are recorded below and in `docs/reports/backend-api-tests-2026-10-18.md`.
