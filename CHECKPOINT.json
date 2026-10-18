@@ -1,7 +1,7 @@
 {
   "objective": "Build Harborlight into an original, Android-first open-world multiplayer roleplay game with verified systems and production evidence.",
   "updatedAt": "2026-10-18",
-  "phase": "QUALITY_VEHICLE_HANDLING",
+  "phase": "QUALITY_NORTH_PIER",
   "overallStatus": "IN_PROGRESS",
   "projectRoot": "/Users/admin/Desktop/RP game/harborlight-city",
   "relatedRoots": [
@@ -477,12 +477,12 @@
   ],
   "referenceAttempt": "REA identifies the installed OneState executable as arm64 Mach-O and the current REA session reports Ghidra 12.1.4 available. An earlier OneState runtime launch produced no accessible window and reached approximately 329% CPU; it remains closed to protect Mac thermals. The installed app is a compiled build, not its Unity project source; no code or assets were transferred.",
   "nextActions": [
-    "Priority 1: when the Unity asset-import stage is authorized, run Harborlight > Build Resident Character Assets and inspect proportions, Humanoid retargeting, walk/jog/sprint blends, foot contact, stopping, and remote playback.",
-    "Priority 2: review Rigidbody driving and the new wheel spin/steer visuals; then implement and validate grounded suspension and vehicle entry/exit behavior at the authorized Unity stage.",
-    "Priority 3: finish the existing North Pier district with authored scenes/prefabs, licensed props, sidewalks, road markings, lighting, and building variation; do not expand the map.",
-    "Priority 4: replace the most visible development IMGUI panels with polished runtime Unity UI for touch movement, vehicles, interactions, map/objectives, and careers.",
-    "Integrate Harbor Patrol with actual world interactions after these quality priorities; arrests, citations, and reports remain deferred.",
-    "Keep Unity builds, gameplay tests, and API test suites deferred until user authorization; preserve an explicit deferred-test list."
+    "Priority 1: when Unity asset import is authorized, run Harborlight > Build Resident Character Assets and inspect resident proportions, Humanoid retargeting, walk/jog/sprint blends, foot contact, stopping, and remote playback.",
+    "Priority 2: review the force-based vehicle and wheel visuals; then add grounded suspension behavior and verify impacts, braking, reverse, steering, and entry/exit.",
+    "Priority 3: finish North Pier with the new licensed PBR paving plus authored props, sidewalks, lighting, and building variation; do not expand the map.",
+    "Priority 4: replace the most visible development IMGUI panels with runtime Unity UI for touch, vehicles, interactions, map/objectives, and careers.",
+    "Integrate Harbor Patrol with actual world interactions after the quality priorities; arrests, citations, and reports remain deferred.",
+    "Keep Unity builds, gameplay tests, and API test suites deferred until the user authorizes them; preserve the test list."
   ],
   "openRisks": [
     "The shaped coastline and clipped roads were validated with a bounded Mac smoke, not a full edge traversal. The full-screen map now uses curved district fills and muted local streets, but the actual road layout remains grid-based in the northern core and several districts; the current-source Android APK is now rebuilt and debug-signed, but no physical Android device is attached to verify installation, rendering, or performance.",
@@ -501,24 +501,25 @@
     "Character locomotion changes are source-only and `IMPLEMENTED_UNVERIFIED`; the current CC0 animation source only supplies idle and carry-walk, so sprint re-times a carry pose."
   ],
   "latestImplementation": {
-    "phase": "QUALITY_VEHICLE_HANDLING",
+    "phase": "QUALITY_NORTH_PIER",
     "status": "IMPLEMENTED_UNVERIFIED",
-    "systems": "Vehicle movement uses Rigidbody acceleration/collision response with lateral grip, speed-sensitive steering, coast deceleration, and braking to a stop before reversing on opposite input. Imported named wheel pivots and generated tire/rim parts now rotate by signed speed; front pivots steer.",
-    "expectedVisualDifference": "Driving should show spinning wheels and front-wheel angle changes, with cars accelerating through physics collisions and resisting sideways slide. Suspension movement and rendered quality remain unfinished.",
+    "systems": "Replaced the North Pier shared paving material source with Poly Haven Patterned Paving 4K diffuse and OpenGL normal maps. Added Unity importer metadata for 4K desktop and 2K Android/iOS imports; the existing tiling scale now matches the texture physical size.",
+    "expectedVisualDifference": "North Pier promenade, connected sidewalks, and district paved pads should show sharper worn stone blocks, grout relief, and normal-map lighting. No game render has confirmed the visual change.",
     "updatedScenesOrPrefabs": [],
-    "screenshotEvidence": "None. Unity build, runtime, and rendered vehicle review were not run.",
-    "verification": "Static checks only: all seven vehicle FBXs expose front-wheel and rear-wheel-group names recognized by the wheel visual cache; git diff --check passed. No Unity compilation, build, gameplay test, or API suite was run.",
-    "knownLimitations": "Wheel pivot axis/orientation is inferred from named FBX pivots and was not visually validated. Rigidbody gravity remains disabled; there is no WheelCollider or suspension travel yet. Speed curves, braking distance, collision response, vehicle entry/exit, and Android controls need runtime review.",
-    "knownRegressions": "None established without running Unity. Force-based physics and wheel orientation may differ from expectations and require the deferred handling/visual regression checks.",
-    "gitCommitSha": "3bf533fdb8acc4fbaba5497ea00290fa02ecc836",
-    "publishedCommitSha": "3bf533fdb8acc4fbaba5497ea00290fa02ecc836",
-    "remaining": "At the authorized Unity stage, validate wheel rotation/steering orientation, body collision response, braking/reverse, and entry/exit; add grounded suspension only after this pass is reviewed. Also regenerate the resident gait prefab, complete North Pier art, runtime UI, and the end-to-end mission journey."
+    "screenshotEvidence": "None. Unity import, build, and rendering were not run.",
+    "verification": "Static checks only: both downloaded files are 4096x4096 JPEGs, importer metadata has diffuse/normal settings and 4K desktop/2K mobile caps, asset GUIDs are unique, and git diff --check passed. No Unity compilation, build, gameplay test, or API suite was run.",
+    "knownLimitations": "The imported material is shared by the other district paver surfaces too. Runtime loading, color/tiling, normal-map orientation, device memory, and appearance remain unverified. North Pier benches, stall, planters, railings, and other fixtures are still prototype geometry.",
+    "knownRegressions": "None established without Unity import/rendering. Confirm paver scale and avoid visible texture repetition during the deferred visual pass.",
+    "gitCommitSha": "541c11a0a814547820bc25b3d0c5aa575a7dd4d2",
+    "publishedCommitSha": "541c11a0a814547820bc25b3d0c5aa575a7dd4d2",
+    "remaining": "Import and render the updated material at the authorized Unity review stage. Continue Harborlight-authored North Pier fixture/lighting improvements, vehicle suspension/visual QA, resident gait prefab regeneration, runtime UI, and full mission-path integration."
   },
   "deferredChecks": [
-    "Unity import and Harborlight > Build Resident Character Assets prefab/controller regeneration; review walk/jog/sprint blend and foot contact.",
-    "Compile/build and inspect vehicle acceleration, coast/brake distance, stop-before-reverse behavior, collision response, steering at low/high speed, and map-boundary contact.",
-    "Rendered wheel spin/steering axes, grounded suspension, vehicle enter/exit, remote movement, touch controls, and sustained Android performance.",
-    "Police career gameplay and v9-to-v10 save migration; no build, gameplay test, or API test suite until user authorization."
+    "Unity import, material load and desktop render of the new North Pier 4K diffuse/OpenGL normal maps; confirm 2K Android/iOS importer overrides and mobile memory.",
+    "Review paver physical scale, color, normal orientation, tiling/repetition, road/plaza transitions, and North Pier fixture collisions.",
+    "Unity import and resident prefab/controller regeneration; inspect walk/jog/sprint, foot contact, remote playback, and mobile controls.",
+    "Vehicle physics and wheel visual review; suspension, braking distance, collision response, entry/exit, and Android handling.",
+    "Police gameplay and v9-to-v10 migration; no Unity build, gameplay test, or API suite until user authorization."
   ],
   "previousImplementation": {
     "phase": "QUALITY_CHARACTER_MOTION",
@@ -547,5 +548,19 @@
     "gitCommitSha": "ae179a75368bfa07e6c7f48c4fac6ffd536636be",
     "publishedCommitSha": "ae179a75368bfa07e6c7f48c4fac6ffd536636be",
     "remaining": "After the authorized Unity review, add/import wheel rotation and suspension presentation if the model pivots support it. Then complete resident prefab gait import, authored North Pier content, runtime UI, and the end-to-end mission journey."
+  },
+  "vehicleWheelImplementation": {
+    "phase": "QUALITY_VEHICLE_HANDLING",
+    "status": "IMPLEMENTED_UNVERIFIED",
+    "systems": "Vehicle movement uses Rigidbody acceleration/collision response with lateral grip, speed-sensitive steering, coast deceleration, and braking to a stop before reversing on opposite input. Imported named wheel pivots and generated tire/rim parts now rotate by signed speed; front pivots steer.",
+    "expectedVisualDifference": "Driving should show spinning wheels and front-wheel angle changes, with cars accelerating through physics collisions and resisting sideways slide. Suspension movement and rendered quality remain unfinished.",
+    "updatedScenesOrPrefabs": [],
+    "screenshotEvidence": "None. Unity build, runtime, and rendered vehicle review were not run.",
+    "verification": "Static checks only: all seven vehicle FBXs expose front-wheel and rear-wheel-group names recognized by the wheel visual cache; git diff --check passed. No Unity compilation, build, gameplay test, or API suite was run.",
+    "knownLimitations": "Wheel pivot axis/orientation is inferred from named FBX pivots and was not visually validated. Rigidbody gravity remains disabled; there is no WheelCollider or suspension travel yet. Speed curves, braking distance, collision response, vehicle entry/exit, and Android controls need runtime review.",
+    "knownRegressions": "None established without running Unity. Force-based physics and wheel orientation may differ from expectations and require the deferred handling/visual regression checks.",
+    "gitCommitSha": "3bf533fdb8acc4fbaba5497ea00290fa02ecc836",
+    "publishedCommitSha": "3bf533fdb8acc4fbaba5497ea00290fa02ecc836",
+    "remaining": "At the authorized Unity stage, validate wheel rotation/steering orientation, body collision response, braking/reverse, and entry/exit; add grounded suspension only after this pass is reviewed. Also regenerate the resident gait prefab, complete North Pier art, runtime UI, and the end-to-end mission journey."
   }
 }
