@@ -478,7 +478,7 @@
   "referenceAttempt": "REA identifies the installed OneState executable as arm64 Mach-O and the current REA session reports Ghidra 12.1.4 available. An earlier OneState runtime launch produced no accessible window and reached approximately 329% CPU; it remains closed to protect Mac thermals. The installed app is a compiled build, not its Unity project source; no code or assets were transferred.",
   "nextActions": [
     "Priority 1: when the Unity asset-import stage is authorized, run Harborlight > Build Resident Character Assets and inspect proportions, Humanoid retargeting, walk/jog/sprint blends, foot contact, stopping, and remote playback.",
-    "Priority 2: continue vehicle quality with wheel rotation and grounded suspension behavior; validate collision response, braking, reverse, steering at speed, and entry/exit at the authorized Unity stage.",
+    "Priority 2: review Rigidbody driving and the new wheel spin/steer visuals; then implement and validate grounded suspension and vehicle entry/exit behavior at the authorized Unity stage.",
     "Priority 3: finish the existing North Pier district with authored scenes/prefabs, licensed props, sidewalks, road markings, lighting, and building variation; do not expand the map.",
     "Priority 4: replace the most visible development IMGUI panels with polished runtime Unity UI for touch movement, vehicles, interactions, map/objectives, and careers.",
     "Integrate Harbor Patrol with actual world interactions after these quality priorities; arrests, citations, and reports remain deferred.",
@@ -503,21 +503,21 @@
   "latestImplementation": {
     "phase": "QUALITY_VEHICLE_HANDLING",
     "status": "IMPLEMENTED_UNVERIFIED",
-    "systems": "Replaced hand-calculated MovePosition vehicle travel with Rigidbody acceleration, collision response, lateral tire-grip damping, speed-sensitive steering, coast deceleration, and a brake-to-stop-then-reverse transition for opposite input.",
-    "expectedVisualDifference": "Cars should accelerate and steer through the physics body, retain collision response, resist sideways sliding, and slow before changing direction. Wheel rotation and suspension presentation remain unfinished.",
+    "systems": "Vehicle movement uses Rigidbody acceleration/collision response with lateral grip, speed-sensitive steering, coast deceleration, and braking to a stop before reversing on opposite input. Imported named wheel pivots and generated tire/rim parts now rotate by signed speed; front pivots steer.",
+    "expectedVisualDifference": "Driving should show spinning wheels and front-wheel angle changes, with cars accelerating through physics collisions and resisting sideways slide. Suspension movement and rendered quality remain unfinished.",
     "updatedScenesOrPrefabs": [],
     "screenshotEvidence": "None. Unity build, runtime, and rendered vehicle review were not run.",
-    "verification": "Source inspection and git diff --check only. No Unity compilation, build, gameplay test, or API suite was run.",
-    "knownLimitations": "Rigidbody gravity remains disabled and wheels are not animated; there is no WheelCollider or suspension travel yet. Speed curves, braking distance, impact response, vehicle entry/exit, and Android controls need runtime review.",
-    "knownRegressions": "None established without running Unity. Physics behavior may differ from the old fixed-speed movement and requires the deferred vehicle regression checks.",
-    "gitCommitSha": "ae179a75368bfa07e6c7f48c4fac6ffd536636be",
-    "publishedCommitSha": "ae179a75368bfa07e6c7f48c4fac6ffd536636be",
-    "remaining": "After the authorized Unity review, add/import wheel rotation and suspension presentation if the model pivots support it. Then complete resident prefab gait import, authored North Pier content, runtime UI, and the end-to-end mission journey."
+    "verification": "Static checks only: all seven vehicle FBXs expose front-wheel and rear-wheel-group names recognized by the wheel visual cache; git diff --check passed. No Unity compilation, build, gameplay test, or API suite was run.",
+    "knownLimitations": "Wheel pivot axis/orientation is inferred from named FBX pivots and was not visually validated. Rigidbody gravity remains disabled; there is no WheelCollider or suspension travel yet. Speed curves, braking distance, collision response, vehicle entry/exit, and Android controls need runtime review.",
+    "knownRegressions": "None established without running Unity. Force-based physics and wheel orientation may differ from expectations and require the deferred handling/visual regression checks.",
+    "gitCommitSha": "3bf533fdb8acc4fbaba5497ea00290fa02ecc836",
+    "publishedCommitSha": "3bf533fdb8acc4fbaba5497ea00290fa02ecc836",
+    "remaining": "At the authorized Unity stage, validate wheel rotation/steering orientation, body collision response, braking/reverse, and entry/exit; add grounded suspension only after this pass is reviewed. Also regenerate the resident gait prefab, complete North Pier art, runtime UI, and the end-to-end mission journey."
   },
   "deferredChecks": [
     "Unity import and Harborlight > Build Resident Character Assets prefab/controller regeneration; review walk/jog/sprint blend and foot contact.",
     "Compile/build and inspect vehicle acceleration, coast/brake distance, stop-before-reverse behavior, collision response, steering at low/high speed, and map-boundary contact.",
-    "Wheel rotation, suspension/ground contact, vehicle enter/exit, remote movement, touch controls, and sustained Android performance.",
+    "Rendered wheel spin/steering axes, grounded suspension, vehicle enter/exit, remote movement, touch controls, and sustained Android performance.",
     "Police career gameplay and v9-to-v10 save migration; no build, gameplay test, or API test suite until user authorization."
   ],
   "previousImplementation": {
@@ -533,5 +533,19 @@
     "gitCommitSha": "cff2b34b96ed218453c71d8ce724c1cbbd213021",
     "remaining": "When the testing restriction is lifted, run the resident asset setup and review walk/jog/sprint in-game. Continue with vehicle collision-aware handling and wheel/suspension presentation, then North Pier art and runtime UI. Preserve Harbor Patrol as IMPLEMENTED_UNVERIFIED.",
     "publishedCommitSha": "cff2b34b96ed218453c71d8ce724c1cbbd213021"
+  },
+  "vehiclePhysicsImplementation": {
+    "phase": "QUALITY_VEHICLE_HANDLING",
+    "status": "IMPLEMENTED_UNVERIFIED",
+    "systems": "Replaced hand-calculated MovePosition vehicle travel with Rigidbody acceleration, collision response, lateral tire-grip damping, speed-sensitive steering, coast deceleration, and a brake-to-stop-then-reverse transition for opposite input.",
+    "expectedVisualDifference": "Cars should accelerate and steer through the physics body, retain collision response, resist sideways sliding, and slow before changing direction. Wheel rotation and suspension presentation remain unfinished.",
+    "updatedScenesOrPrefabs": [],
+    "screenshotEvidence": "None. Unity build, runtime, and rendered vehicle review were not run.",
+    "verification": "Source inspection and git diff --check only. No Unity compilation, build, gameplay test, or API suite was run.",
+    "knownLimitations": "Rigidbody gravity remains disabled and wheels are not animated; there is no WheelCollider or suspension travel yet. Speed curves, braking distance, impact response, vehicle entry/exit, and Android controls need runtime review.",
+    "knownRegressions": "None established without running Unity. Physics behavior may differ from the old fixed-speed movement and requires the deferred vehicle regression checks.",
+    "gitCommitSha": "ae179a75368bfa07e6c7f48c4fac6ffd536636be",
+    "publishedCommitSha": "ae179a75368bfa07e6c7f48c4fac6ffd536636be",
+    "remaining": "After the authorized Unity review, add/import wheel rotation and suspension presentation if the model pivots support it. Then complete resident prefab gait import, authored North Pier content, runtime UI, and the end-to-end mission journey."
   }
 }

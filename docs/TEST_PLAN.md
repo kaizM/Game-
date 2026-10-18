@@ -3,7 +3,7 @@
 ## Current coverage
 
 - Source-only locomotion follow-up: local and authoritative movement ease into and out of motion; licensed CC0 UAL1 idle/walk/jog/sprint clips and the editor blend-tree setup are committed. No Unity import, prefab regeneration, compilation, build, or render was run. Defer asset import, gait transitions, foot contact, turn/start-stop response, wall collision, remote animation, UI lock, vehicle transitions, and Android touch until the authorized Unity stage.
-- Source-only vehicle controller follow-up: travel now uses Rigidbody forces and collision response, with lateral grip, speed-sensitive steering, coast deceleration, and opposite-input braking before reverse. No Unity compile, build, runtime, or visual check was run. Defer speed/steering curves, braking distance, collisions, boundary contact, wheel rotation, suspension, repeated entry/exit, and Android handling until authorized.
+- Source-only vehicle controller follow-up: Rigidbody forces now provide acceleration/collision response, lateral grip, speed-sensitive steering, coast deceleration, and opposite-input braking before reverse; named imported wheel pivots and generated tire/rim parts rotate with signed speed, and front wheels steer. No Unity compile, build, runtime, or visual check was run. Defer speed/braking curves, collisions, boundary contact, wheel-axis review, suspension, repeated entry/exit, and Android handling until authorized.
 
 - The Unity source has no dedicated `Assets/Tests` directory or visible Unity test assembly in the current tree.
 - `harborlight-services/tests` contains an ASP.NET Core test project; the latest service/database run and evidence limits are recorded below and in `docs/reports/backend-api-tests-2026-10-18.md`.
