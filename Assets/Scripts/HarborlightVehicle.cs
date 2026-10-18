@@ -92,22 +92,47 @@ namespace Harborlight
 
             var maximumSpeed = GarageIndex == 3 ? 16f : GarageIndex == 4 ? 13f : GarageIndex == 5 ? 21f : 15f;
             var accelerationRate = GarageIndex == 3 ? 9f : GarageIndex == 4 ? 7f : GarageIndex == 5 ? 12f : 8f;
+            var forwardSpeed = Vector3.Dot(_body.linearVelocity, transform.forward);
+            var oppositeDirection = Mathf.Abs(_throttle) > 0.01f && Mathf.Abs(forwardSpeed) > 0.25f &&
+                                   Mathf.Sign(_throttle) != Mathf.Sign(forwardSpeed);
             var targetSpeed = _throttle >= 0f ? _throttle * maximumSpeed : _throttle * 5f;
-            var acceleration = Mathf.Abs(_throttle) > 0.01f ? accelerationRate : 11f;
-            _speed = Mathf.MoveTowards(_speed, targetSpeed, acceleration * Time.fixedDeltaTime);
+            if (oppositeDirection) targetSpeed = 0f;
 
-            var steeringStrength = Mathf.Clamp01(Mathf.Abs(_speed) / 2f);
-            var steeringRate = GarageIndex == 4 ? 61f : GarageIndex == 5 ? 72f : 68f;
-            var turn = _steering * steeringRate * steeringStrength * Mathf.Sign(_speed) * Time.fixedDeltaTime;
-            var rotation = _body.rotation * Quaternion.Euler(0f, turn, 0f);
-            var position = _body.position + rotation * Vector3.forward * _speed * Time.fixedDeltaTime;
-            var safePosition = HarborlightDistrictSurfaceNetwork.ClampToPlayableLand(
-                new Vector2(position.x, Mathf.Min(position.z, HarborlightDistrictSurfaceNetwork.VehicleMaxZ)));
-            position.x = safePosition.x;
-            position.z = safePosition.y;
+            var speedError = targetSpeed - forwardSpeed;
+            var forwardAcceleration = Mathf.Abs(_throttle) > 0.01f ? accelerationRate : 3.5f;
+            var brakingAcceleration = oppositeDirection ? 18f : 3.5f;
+            var acceleration = Mathf.Clamp(speedError / Time.fixedDeltaTime,
+                -brakingAcceleration, forwardAcceleration);
+            _body.AddForce(transform.forward * acceleration, ForceMode.Acceleration);
 
-            _body.MoveRotation(rotation);
-            _body.MovePosition(position);
+            var lateralSpeed = Vector3.Dot(_body.linearVelocity, transform.right);
+            _body.AddForce(-transform.right * lateralSpeed * 5f, ForceMode.Acceleration);
+
+            var speedRatio = Mathf.Clamp01(Mathf.Abs(forwardSpeed) / maximumSpeed);
+            var steeringAngle = Mathf.Lerp(32f, 5f, speedRatio);
+            var yawRate = forwardSpeed / 2.65f * Mathf.Tan(steeringAngle * Mathf.Deg2Rad) *
+                          _steering * Mathf.Rad2Deg;
+            yawRate = Mathf.Clamp(yawRate, -72f, 72f);
+            _body.MoveRotation(_body.rotation * Quaternion.Euler(0f, yawRate * Time.fixedDeltaTime, 0f));
+
+            var velocity = _body.linearVelocity;
+            var safeSpeed = Mathf.Clamp(forwardSpeed, -5f, maximumSpeed);
+            _body.linearVelocity = velocity + transform.forward * (safeSpeed - forwardSpeed);
+            _speed = safeSpeed;
+
+            var position = _body.position;
+            var requestedLandPosition = new Vector2(position.x, Mathf.Min(position.z, HarborlightDistrictSurfaceNetwork.VehicleMaxZ));
+            var safeLandPosition = HarborlightDistrictSurfaceNetwork.ClampToPlayableLand(requestedLandPosition);
+            if ((safeLandPosition - requestedLandPosition).sqrMagnitude > 0.0001f)
+            {
+                position.x = safeLandPosition.x;
+                position.z = safeLandPosition.y;
+                _body.position = position;
+                var boundedVelocity = _body.linearVelocity;
+                if (Mathf.Abs(safeLandPosition.x - requestedLandPosition.x) > 0.001f) boundedVelocity.x = 0f;
+                if (Mathf.Abs(safeLandPosition.y - requestedLandPosition.y) > 0.001f) boundedVelocity.z = 0f;
+                _body.linearVelocity = boundedVelocity;
+            }
         }
     }
 }
