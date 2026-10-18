@@ -750,7 +750,7 @@ namespace Harborlight
             ApplyPbrTexture(_paint, "white_stucco_02_diff_4k", "white_stucco_02_nor_dx_4k", new Vector2(8f, 5f), 0.35f);
             ApplyPbrTexture(_ground, "grass_ground_diff_2k", "grass_ground_nor_gl_2k", Vector2.one, 0.32f);
             ApplyPbrTexture(_shore, "coast_sand_05_diff_2k", "coast_sand_05_nor_gl_2k", Vector2.one, 0.45f);
-            ApplyPbrTexture(_pavement, "pavement_05_diff_2k", "pavement_05_nor_gl_2k", Vector2.one, 0.3f);
+            ApplyPbrTexture(_pavement, "patterned_paving_diff_4k", "patterned_paving_nor_gl_4k", new Vector2(1.25f, 1.25f), 0.3f);
 
             SetSurface(_ground, 0f, 0.08f);
             SetSurface(_road, 0f, 0.12f);
