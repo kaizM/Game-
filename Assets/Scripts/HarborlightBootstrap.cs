@@ -2152,7 +2152,7 @@ namespace Harborlight
                     renderer.GetPropertyBlock(properties);
                     var tint = isSuit
                         ? Color.Lerp(Color.white, top.color, 0.08f)
-                        : Color.Lerp(Color.white, skin.color, 0.2f);
+                        : renderer.sharedMaterial.GetColor("_BaseColor") * Color.Lerp(Color.white, skin.color, 0.2f);
                     properties.SetColor(Shader.PropertyToID("_BaseColor"), tint);
                     properties.SetColor(Shader.PropertyToID("_Color"), tint);
                     renderer.SetPropertyBlock(properties);
